@@ -4,19 +4,25 @@ One of the best things about our school culture is how willing we are to help ea
 Table of Contents
 =================
 
-  * [Contribution](#contribution)
-  * [What Not to Post](#what-not-to-post)
-  * [Contents](#contents)
-     * [ASD](#asd)
-     * [EPD](#epd)
-     * [ESD](#esd)
-        * [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
-           * [2019](#2019)
-        * [40.302 Advanced Topics in Optimization](#40302-advanced-topics-in-optimization)
-           * [2019](#2019-1)
-     * [ISTD](#istd)
-     * [Freshmore](#freshmore)
-     * [Others](#others)
+* [Contribution](#contribution)
+* [What Not to Post](#what-not-to-post)
+* [Contents](#contents)
+   * [ASD](#asd)
+   * [EPD](#epd)
+   * [ESD](#esd)
+      * [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
+         * [2019](#2019)
+      * [40.302 Advanced Topics in Optimization](#40302-advanced-topics-in-optimization)
+         * [2019](#2019-1)
+   * [ISTD](#istd)
+      * [50.003 Elements of Software Construction](#50003-elements-of-software-construction)
+         * [2018](#2018)
+      * [50.034 Introduction to Probability and Statistics](#50034-introduction-to-probability-and-statistics)
+         * [2018](#2018-1)
+      * [50.005 Computer System Engineering](#50005-computer-system-engineering)
+         * [2018](#2018-2)
+   * [Freshmore](#freshmore)
+   * [Others](#others)
 
 ## Contribution
 If you've made some notes and you'd like to share them, go ahead and make a Pull Request to add them in! The format is pretty self-explanatory.
@@ -52,6 +58,17 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 - [[WIP] Yustynn Panicker](https://github.com/Yustynn/sutd-term-7)
 
 ### ISTD
+#### 50.003 Elements of Software Construction
+##### 2018
+- [Joel Huang](https://github.com/OpenSUTD/course-materials/blob/master/50.003%20Elements%20of%20Software%20Construction/esc_notes_joel.pdf)
+
+#### 50.034 Introduction to Probability and Statistics
+##### 2018
+- [(Lord) Koh Jing Yu](https://github.com/OpenSUTD/course-materials/blob/master/50.034%20Introduction%20to%20Probability%20and%20Statistics/pns_notes_kjy.pdf)
+
+#### 50.005 Computer System Engineering
+##### 2018
+- [Shaun Toh, Joel Huang](https://github.com/OpenSUTD/course-materials/blob/master/50.005%20Computer%20System%20Engineering/cse_notes_shaun.pdf)
 
 ### Freshmore
 
