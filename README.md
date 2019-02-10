@@ -4,20 +4,19 @@ One of the best things about our school culture is how willing we are to help ea
 Table of Contents
 =================
 
-   * [Course Notes for Everyone!](#course-notes-for-everyone)
-      * [Contribution](#contribution)
-      * [What Not to Post](#what-not-to-post)
-      * [Contents](#contents)
-         * [ASD](#asd)
-         * [EPD](#epd)
-         * [ESD](#esd)
-            * [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
-               * [2019](#2019)
-            * [40.302 Advanced Topics in Optimization](#40302-advanced-topics-in-optimization)
-               * [2019](#2019-1)
-         * [ISTD](#istd)
-         * [Freshmore](#freshmore)
-         * [Others](#others)
+  * [Contribution](#contribution)
+  * [What Not to Post](#what-not-to-post)
+  * [Contents](#contents)
+     * [ASD](#asd)
+     * [EPD](#epd)
+     * [ESD](#esd)
+        * [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
+           * [2019](#2019)
+        * [40.302 Advanced Topics in Optimization](#40302-advanced-topics-in-optimization)
+           * [2019](#2019-1)
+     * [ISTD](#istd)
+     * [Freshmore](#freshmore)
+     * [Others](#others)
 
 ## Contribution
 If you've made some notes and you'd like to share them, go ahead and make a Pull Request to add them in! The format is pretty self-explanatory.
