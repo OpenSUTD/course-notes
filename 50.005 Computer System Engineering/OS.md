@@ -87,28 +87,33 @@ queues
 * Many threads can run within a process, sharing the address space
 
 * Kernel Thread
-  * known to OS, scheduled by kernel CPU, expensive
+  * known to OS
+  * scheduled by kernel CPU
+  * expensive
 * User Thread
-  * not known to OS kernel, scheduled by user-mode thread scheduler (`pthread`), less expensive
+  * not known to OS kernel
+  * scheduled by user-mode thread scheduler (`pthread`)
+  * less expensive
 
 ```
 TODO
+elaborate on 'expensive'
 mapping
 ```
 
-Producer-Consumer Problem
+#### Producer-Consumer Problem
 
 * producer puts a new item of work into a shared buffer
 * consumer takes an item of work from the buffer
 * buffer can store a fixed number of items (bounded buffer)
 
-Critical Section Problem
+**Critical Section Problem**
 
 * Mutual Exclusion - If process is executing in its critical section (CS), then no other processes can be executing in their critical sections
 * Progress - If no process is executing in its critical section and there exist some processes that wish to enter their critical section, then the selection of the processes that will enter the critical section next cannot be postponed indefinitely
 * Bounded Waiting - A bound must exist on the number of times that other processes are allowed to enter their critical sections after a process has made a request to enter its critical section and before that request is granted
 
-Peterson's Solution
+**Peterson's Solution**
 
 * require busy waiting, generally bad for uniprocessors
 * busy waiting (spinlock) means executing instructions without doing anything useful
@@ -117,13 +122,13 @@ Peterson's Solution
 TODO
 ```
 
-Synchronization Hardware
+**Synchronization Hardware**
 
 * Many modern machines provide special atomic hardware instructions
 * Test original value of memory word and set its value
 * Swap two memory words
 
-Semaphore
+**Semaphore**
 
 * Semaphore is a high-level synchronization primitive
 * No busy waiting
@@ -137,7 +142,7 @@ TODO
 mutex
 ```
 
-Java Synchronization
+**Java Synchronization**
 
 * Each Java object has an associated binary lock
 * Lock is acquired/released by invoking a synchronized method
