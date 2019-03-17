@@ -3,9 +3,9 @@
 1. [Kernel](#kernel)
 2. [Computer-system Operation](#computer-system-operation)
 3. [Interrupt Handling](#interrupt-handling)
-4. [Producer-consumer Problem](##producer-consumer-problem)
+4. [Producer-consumer Problem](#producer-consumer-problem)
 5. [Deadlocks](#deadlocks)
-6. [Filesystem](#filesystem)
+6. [Filesystem](#file-system)
 
 # Operating System (OS)
 
