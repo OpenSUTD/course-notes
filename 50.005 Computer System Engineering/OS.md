@@ -1,4 +1,13 @@
-## Operating System (OS)
+### Table of Contents
+
+1. [Kernel](#kernel)
+2. [Computer-system Operation](#computer-system-operation)
+3. [Interrupt Handling](#interrupt-handling)
+4. [Producer-consumer Problem](##producer-consumer-problem)
+5. [Deadlocks](#deadlocks)
+6. [Filesystem](#filesystem)
+
+# Operating System (OS)
 
 **Resource allocation**
 
@@ -134,7 +143,7 @@ mutex
 * Mutual exclusion is guaranteed for this object’s method – at most only one thread can be inside it at any time
 * Threads waiting to acquire the object lock are placed in the **entry set** for the object lock
 
-**Deadlocks**
+#### Deadlocks
 
 * Each process utilizes a resource as follows: request, use, release
 * **Circular wait**: set of blocked processes each holding a resource and waiting to acquire a resource held by another process in the set
