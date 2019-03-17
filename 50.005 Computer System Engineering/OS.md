@@ -261,5 +261,42 @@ Caching algorithms
 Note on NVRAM
 ```
 
+#### File System
 
+| UNIX cmd          | function              |
+| ----------------- | --------------------- |
+| cat               | display file contents |
+| rm                | remove file           |
+| mkdir/rmdir       | make/remove dir       |
+| cd                | change current dir    |
+| find              | traverse and find     |
+| ln source link    | create hard link      |
+| ln -s source link | create symbolic link  |
+
+**Files**
+
+* files are stored on persistent (non-volatile) storage, and in UNIX are memory cached for performance:
+  * regular files
+  * special files:
+    * folders
+    * `.` refers to current directory
+    * `..` refers to parent directory
+* file is an uninterpreted sequence of words/bytes
+* can be viewed as an abstract data type, like a class of objects in the OOP sense
+  * state: file data and metadata (file attributes)
+  * interface (set of methods e.g. open/rw/del to be used)
+* format is interpreted by some application (or OS kernel in case of special files)
+
+
+**File Descriptor Tables**
+
+```
+TODO
+```
+
+**Filesystem Structure**
+
+```
+TODO
+```
 
