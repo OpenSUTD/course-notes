@@ -36,9 +36,11 @@
 
 * Software error or request creates exception or trap (software interrupt)
 * Dual-mode operation: User mode and (privileged) kernel mode
+* User-mode program is usually limited to its own address space so that it cannot access or modify other running programs or the operating system itself, and is usually prevented from directly manipulating hardware devices
 * Mode bit provided by hardware provides ability to distinguish when system is running user code or kernel code
 * System program is in user mode!
 * System call: API to services provided by OS kernel
+* System calls are made available by the operating system to provide well-defined, safe implementations for operations that require access to e.g. hardware devices
 
 **OS Services**
 
@@ -75,6 +77,7 @@ Process control block (PCB) is a data structure that contains all information ab
 **Multi-process synchronization**
 
 * Cooperating processes may affect each other, mainly through sharing data
+* Two basic problems: **mutual exclusion** and **condition synchronization**
 * Two basic models of IPC: Shared memory and Message passing
 * Socket as an example of message passing
 * Thread: line of execution, has registers + stack
@@ -110,7 +113,7 @@ mapping
 **Peterson's Solution**
 
 * require busy waiting, generally bad for uniprocessors
-* busy waiting (spinlock) means executing instructions without doing anything useful
+* busy waiting (spinlock) means executing instructions (polling the lock) without doing anything useful
 
 ```
 TODO
@@ -142,6 +145,7 @@ mutex
 * Lock is acquired/released by invoking a synchronized method
 * Mutual exclusion is guaranteed for this object’s method – at most only one thread can be inside it at any time
 * Threads waiting to acquire the object lock are placed in the **entry set** for the object lock
+* A synchronized method of an object can successfully call another synchronized method of the same object although both synchronized methods are guarded by the same binary lock
 
 #### Deadlocks
 
@@ -200,11 +204,11 @@ detection algorithm
 ```
 
 * **Deadlock prevention**
-  * Impose conditions on resource requests to ensure that a valid request can never cause the system to enter a deadlock state by design
+  * Impose conditions on resource requests to ensure that a valid request can never cause the system to enter a deadlock state by design without having to check the system's detailedresource allocation state
     * basically disallow any of the four necessary conditions for deadlock
   * No resource hold and wait
-      * Must get all resources before process execution
-      * Only allow request for resources if the process has none
+    * Must get all resources before process execution
+    * Only allow request for resources if the process has none
   * Disallow circular wait
   * Enforces pre-emption
     * Process must release all resources its already holding if it needs another resources that require wait
@@ -284,20 +288,26 @@ Note on NVRAM
 
 **Files**
 
-* files are stored on persistent (non-volatile) storage, and in UNIX are memory cached for performance:
+* Files are stored on persistent (non-volatile) storage, and in UNIX are memory cached for performance:
   * regular files
   * special files:
     * folders
     * `.` refers to current directory
     * `..` refers to parent directory
+  * file links:
+    * symbolic link (shortcut link)
+    * hard link (both path point to the same file)
 * file is an uninterpreted sequence of words/bytes
 * can be viewed as an abstract data type, like a class of objects in the OOP sense
   * state: file data and metadata (file attributes)
   * interface (set of methods e.g. open/rw/del to be used)
 * format is interpreted by some application (or OS kernel in case of special files)
+* UNIX doesn’t allow hard links to directories. This restriction ensures that we can’t form cycles with hard links
 
 
 **File Descriptor Tables**
+
+* two file descriptors fd1 and fd2 reference same open file entry, they share usage (e.g., cp) of the file – read/write through fd1 will advance cp seen by fd2
 
 ```
 TODO
@@ -305,7 +315,13 @@ TODO
 
 **Filesystem Structure**
 
-```
-TODO
-```
+* Directory Structure is meta-data that organizes files in a structured name space
+* Both the directory structure and the files themselves reside on disk (and cached in memory)
+* There are three types of directory structures
+
+1. Tree -  no links, one location in filesystem for every inode location
+2. Acyclic graph (UNIX) - possible to have multiple links/path to one inode location
+3. General graph - possible to have cycles of links
+
+
 
