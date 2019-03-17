@@ -23,11 +23,6 @@
 | Microkernel  | Move services into user space | Easier development, more reliable | Performance overhead of communication between user and kernel space |
 | Hybrid       | ? | ? | ? |
 
-```
-TODO
-Overview of kernel types
-```
-
 **Dual-mode Operation**
 
 * Software error or request creates exception or trap (software interrupt)
@@ -35,11 +30,6 @@ Overview of kernel types
 * Mode bit provided by hardware provides ability to distinguish when system is running user code or kernel code
 * System program is in user mode!
 * System call: API to services provided by OS kernel
-
-```
-TODO
-note on priviledge rings
-```
 
 **OS Services**
 
@@ -68,11 +58,6 @@ note on priviledge rings
 | terminated/stop | finished execution    |
 
 Process control block (PCB) is a data structure that contains all information about active processes.
-
-```
-TODO
-queues
-```
 
 * Job queue: set of all processes
 * Ready queue: processes in RAM that are ready to execute
@@ -149,6 +134,73 @@ mutex
 * Mutual exclusion is guaranteed for this object’s method – at most only one thread can be inside it at any time
 * Threads waiting to acquire the object lock are placed in the **entry set** for the object lock
 
+**Deadlocks**
+
+* Each process utilizes a resource as follows: request, use, release
+* **Circular wait**: set of blocked processes each holding a resource and waiting to acquire a resource held by another process in the set
+* Single lane bridge crossing example: if a deadlock occurs, it can be resolved if one car backs up (preempt resources and rollback)
+* Cycle in resource allocation graph: if resource only has one instance, then **deadlock**, else, possibility of deadlock
+
+Necessary, but not sufficient, for deadlock: all four conditions hold **simultaneously**:
+
+| Condition        | Elaboration                            |
+| ---------------- | -------------------------------------- |
+| Mutual exclusion | Only one process can use a resource    |
+| Hold and wait    | One process holds a resource while waiting for other resources |
+| No preemption    | Resources are only release voluntarily |
+| Circular wait    | There exists a set of waiting processes such that one is waiting for another that is held by yet another process|
+
+* **Deadlock avoidance**
+  * Before granting a resource request (even if request is valid and the requested resources are now available), check that the request will leave system in a **safe state**
+  * By right not possible for system to enter an unsafe state, but if it does there is possibility of deadlock
+  * Requires advance knowledge of future resource needs (e.g., Banker’s algorithm)
+
+* **Bankers' Algorithm**
+
+Data structure
+
+* Available: 1D array
+* Max: `n*m` 2D array
+* Allocation: `n*m` 2D array
+* Need: `n*m` 2D array
+
+Safety Algorithm
+
+1. Let Work and Finish be vectors of length `m` and `n`, respectively
+  * `n` = number of processes, `m` = number of resource types
+  * `work = available`
+  * `finish[i] false for i in {0 .. n-1}
+2. Find `i` such that
+  * `finish[i] == false`
+  * `need[i] <= work
+  * else: skip to Step 4
+3. `work = work + allication[i]; finish[i] = true; GOTO step 2`
+4. if `finish[i] == true` for all `i`, then only system is in a safe state
+
+```
+TODO
+Algorithm for Granting Request by Process
+```
+
+* **Deadlock detection and recovery**
+  * Actively detect deadlock after the fact, then recover from it (e.g., preempting held resources and rolling back processes)
+
+```
+TODO
+detection algorithm
+```
+
+* **Deadlock prevention**
+  * Impose conditions on resource requests to ensure that a valid request can never cause the system to enter a deadlock state by design
+    * basically disallow any of the four necessary conditions for deadlock
+  * No resource hold and wait
+      * Must get all resources before process execution
+      * Only allow request for resources if the process has none
+  * Disallow circular wait
+  * Enforces pre-emption
+    * Process must release all resources its already holding if it needs another resources that require wait
+    * Restart process, must wait for every resources again
+    
 
 **Single-core**
 
@@ -209,7 +261,5 @@ Caching algorithms
 Note on NVRAM
 ```
 
-```
-done up to week 4
-```
+
 
