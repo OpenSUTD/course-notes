@@ -74,7 +74,7 @@ Process control block (PCB) is a data structure that contains all information ab
 * Ready queue: processes in RAM that are ready to execute
 * Device queue: waiting for I/O
 
-**Multi-process synchronization**
+**Process Management**
 
 * Cooperating processes may affect each other, mainly through sharing data
 * Two basic problems: **mutual exclusion** and **condition synchronization**
@@ -84,19 +84,14 @@ Process control block (PCB) is a data structure that contains all information ab
 * Many threads can run within a process, sharing the address space
 
 * Kernel Thread
-  * known to OS
-  * scheduled by kernel CPU
-  * expensive
+  * known to OS and scheduled by kernel
+  * represented within a kernel-specific data structure
 * User Thread
   * not known to OS kernel
-  * scheduled by user-mode thread scheduler (`pthread`)
-  * less expensive
+  * scheduled by user-mode thread scheduler (such as `pthread`)
+  * must belong to a process
 
-```
-TODO
-elaborate on 'expensive'
-mapping
-```
+Because a thread is smaller than a process, thread creation typically uses fewer resources than process creation. Creating a process requires allocating a process control block (PCB), a rather large data structure. The PCB includes a memory map, list of open ﬁles, and environment variables. Allocating and managing the memory map is typically the most time-consuming activity.
 
 #### Producer-Consumer Problem
 
@@ -162,6 +157,8 @@ Necessary, but not sufficient, for deadlock: all four conditions hold **simultan
 | Hold and wait    | One process holds a resource while waiting for other resources |
 | No preemption    | Resources are only release voluntarily |
 | Circular wait    | There exists a set of waiting processes such that one is waiting for another that is held by yet another process|
+
+Preemptive scheduling allows a process to be interrupted in the midst of its execution, taking the CPU away and allocating it to another process. Nonpreemptive scheduling ensures that a process relinquishes control of the CPU only when it ﬁnishes with its current CPU burst.
 
 * **Deadlock avoidance**
   * Before granting a resource request (even if request is valid and the requested resources are now available), check that the request will leave system in a **safe state**
