@@ -11,6 +11,7 @@ Table of Contents
    * [EPD](#epd)
    * [ESD](#esd)
       * [40.302 Advanced Topics in Optimization](#40302-advanced-topics-in-optimization)
+      * [40.305 Advanced Topics in Stochastic Modeling](#40305-advanced-topics-in-stochastic-modeling)
    * [ISTD](#istd)
       * [50.003 Elements of Software Construction](#50003-elements-of-software-construction)
       * [50.034 Introduction to Probability and Statistics](#50034-introduction-to-probability-and-statistics)
@@ -47,7 +48,11 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 #### 40.302 Advanced Topics in Optimization
 ##### 2019
-- [[WIP] Yustynn Panicker](https://github.com/Yustynn/sutd-term-7)
+- [Yustynn Panicker](https://github.com/OpenSUTD/course-notes/blob/master/40.302%20Advanced%20Topics%20in%20Optimization/2019-Yustynn/opti-notes.pdf)
+
+#### 40.305 Advanced Topics in Stochastic Modeling
+##### 2019
+- [Yustynn Panicker](https://github.com/OpenSUTD/course-notes/blob/master/40.305%20Advanced%20Topics%20in%20Stochastic%20Modeling/2019-Yustynn/atsm-notes.pdf)
 
 ### ISTD
 #### 50.003 Elements of Software Construction
@@ -65,7 +70,7 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 ### HASS
 #### 02.229 Decision Theory and Practice
 ##### 2019
-- [[WIP] Yustynn Panicker](https://github.com/Yustynn/sutd-term-7)
+- [Yustynn Panicker](https://github.com/OpenSUTD/course-notes/tree/master/02.229%20Decision%20Theory%20%26%20Practice/2019-Yustynn)
 
 ### Freshmore
 
