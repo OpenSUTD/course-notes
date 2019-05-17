@@ -10,12 +10,13 @@ Table of Contents
    * [ASD](#asd)
    * [EPD](#epd)
    * [ESD](#esd)
-      * [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
       * [40.302 Advanced Topics in Optimization](#40302-advanced-topics-in-optimization)
    * [ISTD](#istd)
       * [50.003 Elements of Software Construction](#50003-elements-of-software-construction)
       * [50.034 Introduction to Probability and Statistics](#50034-introduction-to-probability-and-statistics)
       * [50.005 Computer System Engineering](#50005-computer-system-engineering)
+   * [HASS](#hass)
+      * [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
    * [Freshmore](#freshmore)
    * [Others](#others)
 
@@ -44,10 +45,6 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 ### ESD
 
-#### 02.229 Decision Theory and Practice
-##### 2019
-- [[WIP] Yustynn Panicker](https://github.com/Yustynn/sutd-term-7)
-
 #### 40.302 Advanced Topics in Optimization
 ##### 2019
 - [[WIP] Yustynn Panicker](https://github.com/Yustynn/sutd-term-7)
@@ -64,6 +61,11 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 #### 50.005 Computer System Engineering
 ##### 2018
 - [Shaun Toh, Joel Huang](https://github.com/OpenSUTD/course-materials/blob/master/50.005%20Computer%20System%20Engineering/cse_notes_shaun.pdf)
+
+### HASS
+#### 02.229 Decision Theory and Practice
+##### 2019
+- [[WIP] Yustynn Panicker](https://github.com/Yustynn/sutd-term-7)
 
 ### Freshmore
 
