@@ -17,9 +17,9 @@ One of the best things about our school culture is how willing we are to help ea
   - [ISTD](#istd)
     - [50.003 Elements of Software Construction](#50003-elements-of-software-construction)
       - [2018](#2018)
-    - [50.034 Introduction to Probability and Statistics](#50034-introduction-to-probability-and-statistics)
-      - [2018](#2018-1)
     - [50.005 Computer System Engineering](#50005-computer-system-engineering)
+      - [2018](#2018-1)
+    - [50.034 Introduction to Probability and Statistics](#50034-introduction-to-probability-and-statistics)
       - [2018](#2018-2)
   - [HASS](#hass)
     - [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
@@ -75,17 +75,17 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 - [Joel Huang](https://github.com/OpenSUTD/course-materials/blob/master/50.003%20Elements%20of%20Software%20Construction/esc_notes_joel.pdf)
 
-#### 50.034 Introduction to Probability and Statistics
-
-##### 2018
-
-- [(Lord) Koh Jing Yu](https://github.com/OpenSUTD/course-materials/blob/master/50.034%20Introduction%20to%20Probability%20and%20Statistics/pns_notes_kjy.pdf)
-
 #### 50.005 Computer System Engineering
 
 ##### 2018
 
 - [Shaun Toh, Joel Huang](https://github.com/OpenSUTD/course-materials/blob/master/50.005%20Computer%20System%20Engineering/cse_notes_shaun.pdf)
+
+#### 50.034 Introduction to Probability and Statistics
+
+##### 2018
+
+- [(Lord) Koh Jing Yu](https://github.com/OpenSUTD/course-materials/blob/master/50.034%20Introduction%20to%20Probability%20and%20Statistics/pns_notes_kjy.pdf)
 
 ### HASS
 
