@@ -6,16 +6,15 @@ One of the best things about our school culture is how willing we are to help ea
 
 - [Contributing](#contributing)
 - [What Not to Post](#what-not-to-post)
-- [Course Notes](#course-notes)
-  - [ESD](#esd)
-    - [40.302 Advanced Topics in Optimization](#40302-advanced-topics-in-optimization)
-    - [40.305 Advanced Topics in Stochastic Modeling](#40305-advanced-topics-in-stochastic-modeling)
-  - [HASS](#hass)
-    - [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
-  - [ISTD](#istd)
-    - [50.003 Elements of Software Construction](#50003-elements-of-software-construction)
-    - [50.005 Computer System Engineering](#50005-computer-system-engineering)
-    - [50.034 Introduction to Probability and Statistics](#50034-introduction-to-probability-and-statistics)
+- [ESD Course Notes](#esd-course-notes)
+  - [40.302 Advanced Topics in Optimization](#40302-advanced-topics-in-optimization)
+  - [40.305 Advanced Topics in Stochastic Modeling](#40305-advanced-topics-in-stochastic-modeling)
+- [HASS Course Notes](#hass-course-notes)
+  - [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
+- [ISTD Course Notes](#istd-course-notes)
+  - [50.003 Elements of Software Construction](#50003-elements-of-software-construction)
+  - [50.005 Computer System Engineering](#50005-computer-system-engineering)
+  - [50.034 Introduction to Probability and Statistics](#50034-introduction-to-probability-and-statistics)
 - [Can't find your course here?](#cant-find-your-course-here)
 
 ## Contributing
@@ -38,49 +37,47 @@ Please don't post official course materials. This includes the following:
 
 That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials), though we're still working out a standard way to get permission for posting it online from the Profs. If you have any ideas, feel free to contribute!
 
-## Course Notes
+## ESD Course Notes
 
-### ESD
+### 40.302 Advanced Topics in Optimization
 
-#### 40.302 Advanced Topics in Optimization
+[![40.302](https://img.shields.io/badge/Last%20updated-06%20Mar%202019-blue.svg)](https://opensutd.org/course-notes/40.302/)
 
-Updated as of 06 March 2019.
+- Shared by [Yustynn Panicker](https://github.com/Yustynn)
 
-- [Yustynn Panicker](https://github.com/OpenSUTD/course-notes/blob/master/40.302%20Advanced%20Topics%20in%20Optimization/2019-Yustynn/opti-notes.pdf)
+### 40.305 Advanced Topics in Stochastic Modeling
 
-#### 40.305 Advanced Topics in Stochastic Modeling
+[![40.305](https://img.shields.io/badge/Last%20updated-30%20Apr%202019-blue.svg)](https://opensutd.org/course-notes/40.305/)
 
-Updated as of 30 April 2019.
+- Shared by [Yustynn Panicker](https://github.com/Yustynn)
 
-- [Yustynn Panicker](https://github.com/OpenSUTD/course-notes/blob/master/40.305%20Advanced%20Topics%20in%20Stochastic%20Modeling/2019-Yustynn/atsm-notes.pdf)
+## HASS Course Notes
 
-### HASS
+### 02.229 Decision Theory and Practice
 
-#### 02.229 Decision Theory and Practice
+[![40.305](https://img.shields.io/badge/Last%20updated-18%20May%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/02.229%20Decision%20Theory%20%26%20Practice/2019-Yustynn)
 
-Updated as of 18 May 2019.
+- Shared by [Yustynn Panicker](https://github.com/Yustynn)
 
-- [Yustynn Panicker](https://github.com/OpenSUTD/course-notes/tree/master/02.229%20Decision%20Theory%20%26%20Practice/2019-Yustynn)
+## ISTD Course Notes
 
-### ISTD
+### 50.003 Elements of Software Construction
 
-#### 50.003 Elements of Software Construction
+[![50.003](https://img.shields.io/badge/Last%20updated-25%20Apr%202018-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.003%20Elements%20of%20Software%20Construction/esc_notes_joel.pdf)
 
-Updated as of 25 April 2018.
+- Shared by [Joel Huang](https://github.com/joel-huang)
 
-- [Joel Huang](https://github.com/OpenSUTD/course-materials/blob/master/50.003%20Elements%20of%20Software%20Construction/esc_notes_joel.pdf)
+### 50.005 Computer System Engineering
 
-#### 50.005 Computer System Engineering
+[![50.005](https://img.shields.io/badge/Last%20updated-24%20Apr%202018-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.005%20Computer%20System%20Engineering/cse_notes_shaun.pdf)
 
-Updated as of 24 April 2018.
+- Shared by [Shaun Toh](https://github.com/Shaun2h) and [Joel Huang](https://github.com/joel-huang)
 
-- [Shaun Toh, Joel Huang](https://github.com/OpenSUTD/course-materials/blob/master/50.005%20Computer%20System%20Engineering/cse_notes_shaun.pdf)
+### 50.034 Introduction to Probability and Statistics
 
-#### 50.034 Introduction to Probability and Statistics
+[![50.034](https://img.shields.io/badge/Last%20updated-11%20Apr%202018-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.034%20Introduction%20to%20Probability%20and%20Statistics/pns_notes_kjy.pdf)
 
-Updated as of 11 April 2018.
-
-- [(Lord) Koh Jing Yu](https://github.com/OpenSUTD/course-materials/blob/master/50.034%20Introduction%20to%20Probability%20and%20Statistics/pns_notes_kjy.pdf)
+- Shared by [Koh Jing Yu](https://github.com/kohjingyu)
 
 ## Can't find your course here?
 
