@@ -1,21 +1,22 @@
 # Networking
 
-### Table of Contents
-- [Networking](#Networking)
-    - [Table of Contents](#Table-of-Contents)
-  - [The Internet - A nuts & bolts view](#The-Internet---A-nuts--bolts-view)
-  - [The Packet](#The-Packet)
-    - [Single Router Packet Delay Sources:](#Single-Router-Packet-Delay-Sources)
-    - [End-to-end Delay for many hosts](#End-to-end-Delay-for-many-hosts)
-    - [Average Link Utilization](#Average-Link-Utilization)
-    - [Modems](#Modems)
-  - [The Internet - A service view](#The-Internet---A-service-view)
-  - [Internet Protocol Stack (Layering)](#Internet-Protocol-Stack-Layering)
-    - [Internet Control Message Protocol (ICMP)](#Internet-Control-Message-Protocol-ICMP)
-    - [Internet Service Provider (ISP)](#Internet-Service-Provider-ISP)
-  - [Sharing of Information via Switching](#Sharing-of-Information-via-Switching)
-    - [Circuit Switching](#Circuit-Switching)
-    - [Packet Switching](#Packet-Switching)
+Table of Contents
+
+- [Networking](#networking)
+  - [The Internet - A nuts & bolts view](#the-internet---a-nuts--bolts-view)
+  - [The Packet](#the-packet)
+    - [Single Router Packet Delay Sources](#single-router-packet-delay-sources)
+    - [End-to-end Delay for many hosts](#end-to-end-delay-for-many-hosts)
+      - [Calculating Throughput](#calculating-throughput)
+    - [Average Link Utilization](#average-link-utilization)
+    - [Modems](#modems)
+  - [The Internet - A service view](#the-internet---a-service-view)
+  - [Internet Protocol Stack (Layering)](#internet-protocol-stack-layering)
+    - [Internet Control Message Protocol (ICMP)](#internet-control-message-protocol-icmp)
+    - [Internet Service Provider (ISP)](#internet-service-provider-isp)
+  - [Sharing of Information via Switching](#sharing-of-information-via-switching)
+    - [Circuit Switching](#circuit-switching)
+    - [Packet Switching](#packet-switching)
 
 ## The Internet - A nuts & bolts view
 1. Hosts (End Systems) running network apps
@@ -27,67 +28,68 @@
     - Header data is used by networking hardware to direct the packet to its destination
     - Payload is extracted and used by application software.
 
-- Usually, the mode of transmission of packets is:
-`PC -> Switch -> Router -> Modem -> Modem -> Switch -> Servers`
+- Usually, the mode of transmission of packets is: PC -> Switch -> Router -> Modem -> Modem -> Switch -> Servers
 
 - When the packets arrive at the router, the packet arrival rate to link temporarily exceeds the output link capacity. Hence they would queue in the router buffers, causing a delay.
     - If there are no free buffers for them to get into queue, then the packets will be dropped. This is known as packet loss.
 
-### Single Router Packet Delay Sources:
-
-![](https://i.imgur.com/V2iaWr9.png)
-Determined by `dnodal = dproc + dqueue + dtrans + dprop` 
+### Single Router Packet Delay Sources
+$$ d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop} $$
 
 
-1. Nodal Processing *(dproc)*
+1. Nodal Processing $(d_{nodal})$
     - Examine packet header
     - Check for bit errors 
     - Determine output link (destination IP address in packet header) 
-2. Queueing *(dqueue)*
+2. Queueing $(d_{queue})$
     - Waiting time for packet to get to front of queue for output link
     - Depends on congestion level (how much other users are also sending data)
-3. Transmission *(dtrans)*
+3. Transmission $(d_{trans})$
     - Time to push the whole packet *(all the bits)* from router to link 
-    - *dtrans* = packet length (bits) / link bandwith (bps)
-`dtrans = L/R` 
-4. Propagation *(dprop)* 
+$$ d_{trans} = \frac{L}{R} = \frac{\text{packet length (bits)}}{\text{link bandwith (bps)}}$$
+4. Propagation $(d_{prop})$
     - Time for packet to move from beginning to end of the link
     - *dprop* = length of physical link (m) / propagation speed in medium *(~2x10^8 m/s - 2/3 speed of light in vacuum)*
-`dprop = d/s` **m/s**
+$$ d_{prop} = \frac{d}{s} m/s $$
 
 ### End-to-end Delay for many hosts
 
-*dend* = `no. of hops` * `nodal delay`
-> This formula applies if and only if a space time diagram is not given, since you can get the approximated *dend* from the graph.
+- If not given space-time diagram
+$$ d_{end} = \text{no. of hops} * \text{nodal delay} $$
 
-The **instantaneous** throughput at any instant of time is the rate at which Host B is receiving the file (bits/sec).
+- If given space-time diagram, we can approximate $d_{end}$ from the graph.
 
-If a file consists of F bits and the transfer takes T seconds for Host B to receive all F bits, then the **average** throughput of the file transfer is F/T bits/sec.
+#### Calculating Throughput
 
-For some applications, it is desirable to have a low delay and an instantaneous throughput consistently above some threshold. e.g. >256 kbps for some realtime video applications
+Throughput: File Receival rate (bits/s)
+- Instantaneous Throughput : at any instant of time
+- Average Throughput : over a longer period
+  - for a file consisting of F bits 
+  - and the transfer takes T seconds for Host B to receive all F bits, then the calculation for average throughput is as shown below.
+$$ \frac{F}{T} bits/s$$
 
-![](https://i.imgur.com/0wFmvtN.png)
-
-
-- Effective throughput is determined by the slowest bandwidth in the route, this refers to the ***bottleneck link***.
-- Usually represented by a space time diagram, where there are two timelines representing the source and the destination.
-
-
+- Effective throughput is determined by the slowest bandwidth in the route, the ***bottleneck link***.
 
 ### Average Link Utilization
 
-Also known as *Traffic Intensity*, given by the formula `Traffic Intesity = La / R`
+Also known as *Traffic Intensity*, given by the formula 
 
+$$ \text{Traffic Intesity} = \frac{La}{R}  $$
 
-- If *La/R* > 1, then the average rate at which bits arrive at the queue exceeds the rate at which the bits can be transmitted from the queue. 
-    - the queue will tend to increase without bound and the queuing delay will approach infinity.
-    - so system must be designed that traffic intensity should be <= 1.
-- If *La/R* <= 1, 
-    - If packets arrive individually periodically, then every packet will arrive at an empty queue and there will be no queueing delay
-    - If the packets arrive periodically in bursts *(bursty data)*, then the nth packet transmitted will have a queueing delay of `(n-1)L/R` seconds.
+where:
+- $L$ is the packet length (bits)
+- $a$ = average packet arrival rate
+- $R$ = link bandwidth (bits/s)
 
-![](https://i.imgur.com/rW9CXqu.png)
+If $\frac{La}{R} > 1$ , 
+  - the average rate at which bits arrive at the queue exceeds the rate at which the bits can be transmitted from the queue. 
+  - the queue will tend to increase without bound and the queuing delay will approach infinity.
+  - so system must be designed that traffic intensity should be <= 1.
 
+If $\frac{La}{R} <= 1$ , 
+  - If packets arrive individually periodically, then every packet will arrive at an empty queue and there will be no queueing delay
+  - If the packets arrive periodically in bursts *(bursty data)*, then the nth packet transmitted will have a queueing delay of 
+$$(n-1)*L/R \text  { seconds}$$
 
 > Do note that the cases stated here are more academic examples than reality. In reality, typically, the arrival process to a queue is random; that is, the arrivals do not follow any pattern and the packets are spaced apart by random amounts of time. La/R is not usually sufficient to fully characterize the queueing delay statistics. 
 
@@ -159,19 +161,21 @@ Circuit switching can performed via Time Domain Multiplexing (TDM) & Frequency D
 
 **Multiplexing** is the process of combining multiple signals into one, in such a manner that each individual signal can be retrieved at the destination. These multiple signals are also travelling in the same channel.
 
-| TDM |FDM |
-| -------- | -------- | 
-| Bandwidth = bits/second  | Bandwidth = frequency range |
-| divides and allocates certain time periods to each channel in an alternating manner. | divides the channel into two or more frequency ranges that do not overlap. |
-| Greater flexibility as it can dynamically allocate more time periods to the signals that need more of the bandwidth, while reducing the time periods to those signals that do not need it. | Less flexible since it cannot dynamically change the width of the allocated frequency. | 
-| each signal uses all of the bandwidth some of the time | each signal uses a small portion of the bandwidth all of the time. |
+| TDM                                                                                                                                                                                        | FDM                                                                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Bandwidth = bits/second                                                                                                                                                                    | Bandwidth = frequency range                                                                                                                                                                                         |
+| divides and allocates certain time periods to each channel in an alternating manner.                                                                                                       | divides the channel into two or more frequency ranges that do not overlap.                                                                                                                                          |
+| Greater flexibility as it can dynamically allocate more time periods to the signals that need more of the bandwidth, while reducing the time periods to those signals that do not need it. | Less flexible since it preallocates use of transmission link regardless of demand. Cannot dynamically change the width of the allocated frequency. So there could be allocated but unneeded link time going unused. |
+| each signal uses all of the bandwidth some of the time                                                                                                                                     | each signal uses a small portion of the bandwidth all of the time.                                                                                                                                                  |
 
 
-While there are advantages & disadvantages to each method, FDM and TDM are *often used in tandem*, to create even more channels in a given frequency range. A common practice for telecoms to ***allow a huge number of users to use a certain frequency band***: 
-- *divide the channel with FDM*, so that you have a dedicated channel with a smaller frequency range. 
-- Each of the FDM channels is then *occupied by multiple channels that are multiplexed using TDM*. 
+While there are advantages & disadvantages to each method, FDM and TDM are *often used in tandem*, to create even more channels in a given frequency range. 
 
-Circuit switching allows a fixed, dedicated fraction of the link for each user. **Better for continuous, streamline usage**.
+A common practice for telecoms to allow a huge number of users to use a certain frequency band: 
+- **divide the channel with FDM**, so that you have a dedicated channel with a smaller frequency range. 
+- Each of the FDM channels is then **occupied by multiple channels that are multiplexed using TDM**. 
+
+Circuit switching allows a **fixed, dedicated fraction of the link for each user**. Better for continuous, streamline usage.
 
 ### Packet Switching
 On the other hand, Packet switching occupy link on demand, **better for bursty data**.
