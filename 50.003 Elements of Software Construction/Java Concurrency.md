@@ -7,9 +7,7 @@
 *(i renamed and changed some stuff for easier readibility)*
 - [Netjs](https://netjs.blogspot.com/2016/01/phaser-in-java-concurrency.html) for Phaser Explanation
 
-> Thanks to all these giants for their shoulders :) 
-
-### Table of Contents
+Table of Contents
   * [Basics of Concurrency - Multi-threading](#basics-of-concurrency---multi-threading)
     + [Starting up a thread on Java](#starting-up-a-thread-on-java)
     + [Stopping a thread](#stopping-a-thread)
@@ -303,8 +301,8 @@ public class CyclicBarrierExample {
 ### Phaser
 
 Essentially, 
-> Phaser = CountdownLatch + CyclicBarrier
-> 
+$$Phaser = CountdownLatch + CyclicBarrier$$
+
 What sets Phaser apart is it is **reusable** (like CyclicBarrier) and **more flexible in usage**. In both CountDownLatch and CyclicBarrier number of parties (thread) that are registered for waiting can't change where as in Phaser that number can vary. 
 
 Tasks may be registered at any time (using methods register(), bulkRegister(int), or by specifying initial number of parties in the constructor). Tasks may also be optionally deregistered upon any arrival (using arriveAndDeregister()).
@@ -344,9 +342,9 @@ public void task(Phaser phaser) {
 ### Summary
 
 
-| CountDownLatch | Cyclic Barrier  | Phaser  |
-| -------- | -------- | -------- |
-| - Created with a fixed number of threads <br /> - Cannot be reset <br /> - Allow threads to wait with `await()` or continue with its execution `countdown()` | - Created with a fixed number of threads <br /> - Can be reset <br /> - Does not provide a method for the threads to advance. The threads have to wait till all the threads arrive. | - Number of threads need not be known at Phaser creation time. They can be added dynamically. <br /> - Can be reset and hence is, reusable. <br /> - Allow threads to wait with `arriveAndAwaitAdvance()` or continue with its execution `arrive()` 
+| CountDownLatch                                                                                                                                               | Cyclic Barrier                                                                                                                                                                      | Phaser                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| - Created with a fixed number of threads <br /> - Cannot be reset <br /> - Allow threads to wait with `await()` or continue with its execution `countdown()` | - Created with a fixed number of threads <br /> - Can be reset <br /> - Does not provide a method for the threads to advance. The threads have to wait till all the threads arrive. | - Number of threads need not be known at Phaser creation time. They can be added dynamically. <br /> - Can be reset and hence is, reusable. <br /> - Allow threads to wait with `arriveAndAwaitAdvance()` or continue with its execution `arrive()` |
 
 ## Performance 
 
@@ -410,12 +408,13 @@ Task should not be too big or small:
 
 ### Optimal CPU Utilization
 Given these definitions:
-- 	N = number of CPUs
--	U = target CPU utilization
--	W/C = ratio of wait time to compute time
+- 	$N$ = number of CPUs
+-	$U$ = target CPU utilization
+-	$W/C$ = ratio of wait time to compute time
 
 The optimal pool size is:
--	M = N * U * (1 + W/C)
+
+$$M = N * U * (1 + W/C)$$
 
 The number of CPUs can be obtained by: 	`Runtime.getRuntime().availableProcessors()`
 
