@@ -67,17 +67,26 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 - Shared by [Joel Huang](https://github.com/joel-huang)
 
+[![50.005](https://img.shields.io/badge/Last%20updated-9%20Oct%202019-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.003%20Elements%20of%20Software%20Construction/2018)
+
+- Shared by [Siew Wen](https://github.com/lyqht)
+
 ### 50.005 Computer System Engineering
 
 [![50.005](https://img.shields.io/badge/Last%20updated-24%20Apr%202018-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.005%20Computer%20System%20Engineering/cse_notes_shaun.pdf)
 
 - Shared by [Shaun Toh](https://github.com/Shaun2h) and [Joel Huang](https://github.com/joel-huang)
 
+[![50.005](https://img.shields.io/badge/Last%20updated-9%20Oct%202019-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.005%20Computer%20System%20Engineering/2018)
+
+- Shared by [Siew Wen](https://github.com/lyqht)
+
 ### 50.034 Introduction to Probability and Statistics
 
 [![50.034](https://img.shields.io/badge/Last%20updated-11%20Apr%202018-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.034%20Introduction%20to%20Probability%20and%20Statistics/pns_notes_kjy.pdf)
 
 - Shared by [Koh Jing Yu](https://github.com/kohjingyu)
+
 
 ## Can't find your course here?
 
