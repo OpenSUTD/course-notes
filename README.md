@@ -83,7 +83,7 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 ### 50.034 Introduction to Probability and Statistics
 
-[![50.034](https://img.shields.io/badge/Last%20updated-11%20Apr%202018-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.034%20Introduction%20to%20Probability%20and%20Statistics/pns_notes_kjy.pdf)
+[![50.034](https://img.shields.io/badge/Last%20updated-11%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.034/)
 
 - Shared by [Koh Jing Yu](https://github.com/kohjingyu)
 
