@@ -129,8 +129,6 @@ The stack is separated into 5 layers so that we can **avoid complex interactions
     - Difficult to debug
     - Might lead to emergent & undesirable behaviour 
 
-![Packet Transmission Pathway](https://i.imgur.com/3h95Hn7.png)
-
 ### Internet Control Message Protocol (ICMP)
 ICMP is used by hosts and routers to communicate network-layer information to each other. ICMP is often considered part of IP but architecturally it lies just above IP, as
 **ICMP messages are carried inside IP datagrams. (is also carried as IP payload)** *Similar to TCP/UDP segments being carried as IP payload.*
