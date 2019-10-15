@@ -55,7 +55,7 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 ### 02.229 Decision Theory and Practice
 
-[![40.305](https://img.shields.io/badge/Last%20updated-18%20May%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/02.229%20Decision%20Theory%20%26%20Practice/2019-Yustynn)
+[![40.305](https://img.shields.io/badge/Last%20updated-18%20May%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/02.229%20Decision%20Theory%20%26%20Practice/2019-Yustynn)
 
 - Shared by [Yustynn Panicker](https://github.com/Yustynn)
 
