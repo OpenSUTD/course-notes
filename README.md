@@ -10,6 +10,7 @@ One of the best things about our school culture is how willing we are to help ea
   - [40.302 Advanced Topics in Optimization](#40302-advanced-topics-in-optimization)
   - [40.305 Advanced Topics in Stochastic Modeling](#40305-advanced-topics-in-stochastic-modeling)
 - [HASS Course Notes](#hass-course-notes)
+  - [02.126 Southeast Asia Under Japan: Motives, Memoirs, and Media](#02126-southeast-asia-under-japan-motives-memoirs-and-media)
   - [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
 - [ISTD Course Notes](#istd-course-notes)
   - [50.003 Elements of Software Construction](#50003-elements-of-software-construction)
@@ -53,6 +54,12 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 ## HASS Course Notes
 
+### 02.126 Southeast Asia Under Japan: Motives, Memoirs, and Media
+
+[![02.126](https://img.shields.io/badge/Last%20updated-10%20Apr%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/02.126%20SEA%20under%20Japan/2019)
+
+- Shared by [Alexander Fonseca](https://github.com/WilburthePiggy)
+
 ### 02.229 Decision Theory and Practice
 
 [![40.305](https://img.shields.io/badge/Last%20updated-18%20May%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/02.229%20Decision%20Theory%20%26%20Practice/2019-Yustynn)
@@ -86,7 +93,6 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 [![50.034](https://img.shields.io/badge/Last%20updated-11%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.034/)
 
 - Shared by [Koh Jing Yu](https://github.com/kohjingyu)
-
 
 ## Can't find your course here?
 
