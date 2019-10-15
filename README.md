@@ -67,7 +67,7 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 - Shared by [Joel Huang](https://github.com/joel-huang)
 
-[![50.005](https://img.shields.io/badge/Last%20updated-9%20Oct%202019-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.003%20Elements%20of%20Software%20Construction/2018)
+[![50.005](https://img.shields.io/badge/Last%20updated-9%20Oct%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/blob/master/notes/50.003%20Elements%20of%20Software%20Construction/2018/50.003_Finals_Revision_Compiled.md)
 
 - Shared by [Siew Wen](https://github.com/lyqht)
 
@@ -77,7 +77,7 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 - Shared by [Shaun Toh](https://github.com/Shaun2h) and [Joel Huang](https://github.com/joel-huang)
 
-[![50.005](https://img.shields.io/badge/Last%20updated-9%20Oct%202019-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.005%20Computer%20System%20Engineering/2018)
+[![50.005](https://img.shields.io/badge/Last%20updated-9%20Oct%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/50.005%20Computer%20System%20Engineering/2018)
 
 - Shared by [Siew Wen](https://github.com/lyqht)
 
