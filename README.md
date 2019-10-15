@@ -70,7 +70,7 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 ### 50.003 Elements of Software Construction
 
-[![50.003](https://img.shields.io/badge/Last%20updated-25%20Apr%202018-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.003%20Elements%20of%20Software%20Construction/esc_notes_joel.pdf)
+[![50.003](https://img.shields.io/badge/Last%20updated-25%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.003/)
 
 - Shared by [Joel Huang](https://github.com/joel-huang)
 
@@ -80,7 +80,7 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 ### 50.005 Computer System Engineering
 
-[![50.005](https://img.shields.io/badge/Last%20updated-24%20Apr%202018-blue.svg)](https://github.com/OpenSUTD/course-materials/blob/master/50.005%20Computer%20System%20Engineering/cse_notes_shaun.pdf)
+[![50.005](https://img.shields.io/badge/Last%20updated-24%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.005/)
 
 - Shared by [Shaun Toh](https://github.com/Shaun2h) and [Joel Huang](https://github.com/joel-huang)
 
