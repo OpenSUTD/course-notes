@@ -22,7 +22,7 @@ One of the best things about our school culture is how willing we are to help ea
 
 If you've made some notes and you'd like to share them, go ahead and make a Pull Request to add them in! The format is pretty self-explanatory.
 
-If you don't know how to use GitHub, but already have a link to your notes, get in touch with [Wei Min](weimin_cher@mymail.sutd.edu.sg) and he'll help you out.
+If you don't know how to use GitHub, but already have a link to your notes, get in touch with [Wei Min](mailto:weimin_cher@mymail.sutd.edu.sg) and he'll help you out.
 
 If you're worried about the quality of your notes and don't want to share them without someone vetting them, we recommend just sharing them! But if you want someone to look them over, look for Wei Min.
 
