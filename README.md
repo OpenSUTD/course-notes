@@ -36,8 +36,6 @@ Please don't post official course materials. This includes the following:
 - Readings
 - Homework question papers
 
-That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials), though we're still working out a standard way to get permission for posting it online from the Profs. If you have any ideas, feel free to contribute!
-
 ## ESD Course Notes
 
 ### 40.302 Advanced Topics in Optimization
