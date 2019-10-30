@@ -22,7 +22,7 @@ One of the best things about our school culture is how willing we are to help ea
 
 If you've made some notes and you'd like to share them, go ahead and make a Pull Request to add them in! The format is pretty self-explanatory.
 
-If you don't know how to use GitHub, but already have a link to your notes, get in touch with [Wei Min](weimin_cher@mymail.sutd.edu.sg) and he'll help you out.
+If you don't know how to use GitHub, but already have a link to your notes, get in touch with [Wei Min](mailto:weimin_cher@mymail.sutd.edu.sg) and he'll help you out.
 
 If you're worried about the quality of your notes and don't want to share them without someone vetting them, we recommend just sharing them! But if you want someone to look them over, look for Wei Min.
 
@@ -36,19 +36,17 @@ Please don't post official course materials. This includes the following:
 - Readings
 - Homework question papers
 
-That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials), though we're still working out a standard way to get permission for posting it online from the Profs. If you have any ideas, feel free to contribute!
-
 ## ESD Course Notes
 
 ### 40.302 Advanced Topics in Optimization
 
-[![40.302](https://img.shields.io/badge/Last%20updated-06%20Mar%202019-blue.svg)](https://opensutd.org/course-notes/40.302/)
+[![40.302](https://img.shields.io/badge/Last%20updated-06%20Mar%202019-blue.svg)](https://opensutd.org/course-notes/40.302/) [![40.302DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/40.302/) 
 
 - Shared by [Yustynn Panicker](https://github.com/Yustynn)
 
 ### 40.305 Advanced Topics in Stochastic Modeling
 
-[![40.305](https://img.shields.io/badge/Last%20updated-30%20Apr%202019-blue.svg)](https://opensutd.org/course-notes/40.305/)
+[![40.305](https://img.shields.io/badge/Last%20updated-30%20Apr%202019-blue.svg)](https://opensutd.org/course-notes/40.305/) [![40.305DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/40.305/) 
 
 - Shared by [Yustynn Panicker](https://github.com/Yustynn)
 
@@ -56,13 +54,13 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 ### 02.126 Southeast Asia Under Japan: Motives, Memoirs, and Media
 
-[![02.126](https://img.shields.io/badge/Last%20updated-10%20Apr%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/02.126%20SEA%20under%20Japan/2019)
+[![02.126](https://img.shields.io/badge/Last%20updated-10%20Apr%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/02.126%20SEA%20under%20Japan/2019) [![02.126DL](https://img.shields.io/badge/View-orange.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/02.126%20SEA%20under%20Japan/2019) 
 
 - Shared by [Alexander Fonseca](https://github.com/WilburthePiggy)
 
 ### 02.229 Decision Theory and Practice
 
-[![40.305](https://img.shields.io/badge/Last%20updated-18%20May%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/02.229%20Decision%20Theory%20%26%20Practice/2019-Yustynn)
+[![02.229](https://img.shields.io/badge/Last%20updated-18%20May%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/02.229%20Decision%20Theory%20%26%20Practice/2019-Yustynn) [![02.229DL](https://img.shields.io/badge/View-orange.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/02.229%20Decision%20Theory%20%26%20Practice/2019-Yustynn) 
 
 - Shared by [Yustynn Panicker](https://github.com/Yustynn)
 
@@ -70,27 +68,27 @@ That kind of thing belongs [here](https://github.com/OpenSUTD/course-materials),
 
 ### 50.003 Elements of Software Construction
 
-[![50.003](https://img.shields.io/badge/Last%20updated-25%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.003/)
+[![50.003](https://img.shields.io/badge/Last%20updated-9%20Oct%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/blob/master/notes/50.003%20Elements%20of%20Software%20Construction/2018/50.003_Finals_Revision_Compiled.md) [![50.003DL](https://img.shields.io/badge/View-orange.svg)](https://github.com/OpenSUTD/course-notes/blob/master/notes/50.003%20Elements%20of%20Software%20Construction/2018/50.003_Finals_Revision_Compiled.md) 
+
+- Shared by [Siew Wen](https://github.com/lyqht)
+
+[![50.003](https://img.shields.io/badge/Last%20updated-25%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.003/) [![50.003DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/50.003/) 
 
 - Shared by [Joel Huang](https://github.com/joel-huang)
 
-[![50.005](https://img.shields.io/badge/Last%20updated-9%20Oct%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/blob/master/notes/50.003%20Elements%20of%20Software%20Construction/2018/50.003_Finals_Revision_Compiled.md)
+### 50.005 Computer System Engineering
+
+[![50.005](https://img.shields.io/badge/Last%20updated-9%20Oct%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/50.005%20Computer%20System%20Engineering/2018) [![50.005DL](https://img.shields.io/badge/View-orange.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/50.005%20Computer%20System%20Engineering/2018) 
 
 - Shared by [Siew Wen](https://github.com/lyqht)
 
-### 50.005 Computer System Engineering
-
-[![50.005](https://img.shields.io/badge/Last%20updated-24%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.005/)
+[![50.005](https://img.shields.io/badge/Last%20updated-24%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.005/) [![50.005DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/50.005/) 
 
 - Shared by [Shaun Toh](https://github.com/Shaun2h) and [Joel Huang](https://github.com/joel-huang)
 
-[![50.005](https://img.shields.io/badge/Last%20updated-9%20Oct%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/tree/master/notes/50.005%20Computer%20System%20Engineering/2018)
-
-- Shared by [Siew Wen](https://github.com/lyqht)
-
 ### 50.034 Introduction to Probability and Statistics
 
-[![50.034](https://img.shields.io/badge/Last%20updated-11%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.034/)
+[![50.034](https://img.shields.io/badge/Last%20updated-11%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.034/) [![50.034DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/50.034/)
 
 - Shared by [Koh Jing Yu](https://github.com/kohjingyu)
 
