@@ -1,8 +1,9 @@
-# Course Notes for Everyone! <!-- omit in toc -->
+<h1 align="center">OpenSUTD Course Notes</h1><!-- omit in toc -->
+<h3 align="center"><code>&#x1F4D9; Notes by SUTDents, for SUTDents. &#x1F4D9;</code></h3><!-- omit in toc -->
 
 One of the best things about our school culture is how willing we are to help each other out. Let's maintain that for future generations by sharing our notes on the subjects we're taking :)
 
-# Table of Contents <!-- omit in toc -->
+# Contents <!-- omit in toc -->
 
 - [Contributing](#contributing)
 - [What Not to Post](#what-not-to-post)
