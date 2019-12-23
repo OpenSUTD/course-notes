@@ -1,0 +1,705 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage[hidelinks]{hyperref}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\baselinestretch}{1.25} 
+
+\usepackage{minted}
+\usepackage{inconsolata}
+
+\usepackage{csquotes}
+
+\usepackage{enumitem}
+
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{3}
+
+\usepackage{amssymb}
+
+\usepackage{array}
+
+\usepackage{cellspace}
+\setlength\cellspacetoplimit{4pt}
+\setlength\cellspacebottomlimit{4pt}
+
+\newcommand\cincludegraphics[2][]{\raisebox{-0.3\height}{\includegraphics[#1]{#2}}}
+
+\usepackage{textcomp}
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+
+\title{50.003 Elements of Software Construction\\Finals Revision}
+\author{Tey Siew Wen}
+
+\date{12 Oct 2019}
+\begin{document}
+	
+\maketitle
+
+\section*{Preface}
+As there are a lot of contents to be revised for finals, I've split up
+the original document into individual sections instead.
+
+\section*{Credits}
+\begin{itemize}
+	\item \href{https://www.uml-diagrams.org/use-case-diagrams.html}{UMLDiagrams.org} - UML Use Case Diagram
+	\item \href{https://www.sciencedirect.com/science/article/pii/S0164121213002458}{Journal
+		of Systems \& Software} - UML Misuse Case Diagram
+	\item  \href{https://www.lucidchart.com/pages/uml-class-diagram}{LucidCharts} - UML Class Diagrams
+	\item  \href{https://www.youtube.com/watch?v=pCK6prSq8aw}{LucidCharts} - UML Sequence Diagram
+	\item  \href{https://www.guru99.com/equivalence-partitioning-boundary-value-analysis.html}{Guru99} - Equivalence Class Partitioning \& Boundary Value Testing
+	\item \href{http://testerstories.com/2014/06/path-testing-the-coverage/}{Tester
+		Stories} - Control Flow Graphs
+	\item \href{https://stackoverflow.com/questions/22351222/can-we-change-the-value-of-a-final-variable-of-a-mutable-class}{StackOverflow}
+	- OBJ04-J's explanation on the \texttt{final} term
+	\item \href{http://tutorials.jenkov.com/java-concurrency/index.html}{Jenkov
+		Java Concurrency Tutorials} for some general concepts
+	\item \href{https://howtodoinjava.com/java/multi-threading/best-practices-for-using-concurrenthashmap/}{HowToDoInJava}
+	for CountDownLatchExample.
+	\item \href{https://www.javaspecialists.eu/archive/Issue257.html}{JavaEUSpecialists}
+	for CyclicBarrierExample \& PhaserExample \emph{(i renamed and changed
+		some stuff for easier readibility)}
+	\item \href{https://netjs.blogspot.com/2016/01/phaser-in-java-concurrency.html}{Netjs}
+	for Phaser Explanation
+	\item 50.003 Elements of Software Construction Slides
+	- Syllabus and some content
+	\item \href{https://istd.sutd.edu.sg/people/faculty/sudipta-chattopadhyay}{Prof
+		Sudipta} - Comments on Finals
+	\item \href{https://github.com/lyqht}{Lyqht} -
+	Compilation
+	
+\end{itemize}
+
+\section*{not testing for 2019 ESC Finals:}
+\begin{itemize}
+	\item Software engineering process e.g. water fall, agile, time-based
+	\item testing tools eg. junit, selenium, evosuite, klee
+\end{itemize}
+
+\tableofcontents
+
+\newpage
+\section{Concurrency}
+\subsection{Main Issues of Concurrency}
+3 Main Issues:
+\begin{enumerate}
+	\item \textbf{Visibility}
+	\begin{itemize}
+		\item Visibility is solved if all cores are sharing all the memories. Thus, updates to a variable will immediately be visible in the shared memory and also to an arbitrary thread running on an arbitrary core.
+	\end{itemize}
+	\item \textbf{Atomicity}
+	\begin{itemize}
+		\item Making statements atomic alone does not solve the issue of atomicity. Often according to your requirement, you need to make multiple statements (a code block) atomic.
+		\item e.g. consider a stack class that is trying to pop an item. You might need to check the empty stack and the pop together atomically. If only single statements are atomic, this only guarantees that the check and the updates are atomic in isolation, but not together.
+		\item To solve such problem, we will still need locks.
+	\end{itemize}
+	\item \textbf{Execution Ordering}
+	\begin{itemize}
+		\item Unless the hardware implements a completely deterministic scheduler known to the programmer, the execution order problem will persist. In practice, it is almost impossible to implement a completely deterministic scheduler.
+		\item But, using locks can help to restrict the number of possible execution orders.
+	\end{itemize}
+\end{enumerate}
+\subsection{Basics of Concurrency - Multi-threading}
+\subsubsection{Starting up a thread on Java}
+\begin{enumerate}
+	\item Make an object class that extends Thread.
+	\item For Thread objects, it is mandatory to implement the \texttt{run()} method. In this method, you write the code for the task that you want to thread to be doing e.g. arithmetic operations, insertion into a list etc.
+	\item In a main program, create an instance of the object Thread and start it. This makes the objectThread start running its \texttt{run()} method.
+	\item The main program should only resume when the threads finish their work. To make the main program wait, use \texttt{join()}.
+\end{enumerate}
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+public objectThread extends Thread() {
+	public void run() {
+		System.out.println("Thread is running.")
+	}
+}
+
+public void main String[] args {
+	objectThread thread1 = new objectThread();
+	objectThread thread2 = new objectThread();
+
+	thread1.start();
+	thread2.start();
+
+	thread1.join();
+	thread2.join();
+}
+\end{minted}
+\subsubsection{Stopping a thread}
+There are times when we want to stop a thread under certain conditions or just for fun. Unfortunately, we cannot destroy a thread, but we can interrupt its work using \texttt{interrupt()}.
+\begin{itemize}
+	\item We can use a try/catch block to handle the \texttt{InterruptedException e}.
+	\item We can also check if the thread is interrupted with \texttt{Thread.interrupted()}, which returns a boolean.
+\end{itemize}
+P.S. Why we cannot destroy threads is because of the way that the thread library scheduler works. The thread still has to exist in the thread table even if it is no longer running so that it doesn't screw up the scheduling. For more details, please ask your friendly CSE / ESC / Google profs. There are methods such as \texttt{destroy()}, \texttt{stop()} for Java threads but they are deprecated. \\
+\\
+\textbf{TLDR: Only do interruption to stop a thread.}
+\subsubsection{Runnable Interface}
+\begin{itemize}
+	\item Alternative for implementing \& starting a thread
+	\item Allows the object to inherit from other classes as well.
+	\item Runnable allows better separation of the actual computation and thread control.
+\end{itemize}
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+class RunnableExample {
+	public void run() {
+		System.out.println("Thread is running.")
+	}
+}
+new objectThread(RunnableExample).start();
+\end{minted}
+OR
+\\
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+new objectThread(new Runnable() {
+	public void run() {
+		System.out.println("Thread is running.")
+	}
+
+}).start();
+\end{minted}
+\newpage
+\subsection{Basic Thread Safety}
+\begin{displayquote}
+	“A class is thread-safe if no set of operations performs sequentially or concurrently on instances of a thread-safe class can cause an instance to be in an \textbf{invalid} state.”
+\end{displayquote}
+What constistutes a valid state depends on the specs such as:
+\begin{itemize}
+	\item pre-conditions/post-conditions
+	\item assertions
+\end{itemize}
+\paragraph{How to build thread-safe classes?}
+\begin{itemize}
+	\item From scratch
+	\item By extending the class
+	\item Through client-side locking
+	\item Through composition
+\end{itemize}
+\paragraph{Steps to build thread-safe classes from scratch}
+\begin{enumerate}
+	\item Identifying states A
+	\begin{itemize}
+		\item An object's state includes all of its mutable variables.
+		\item If the object has fields that are references to other objects, its state will encompass fields from those as well.
+	\end{itemize}
+	\item Identifying Requirements
+	\begin{itemize}
+	\item Constraint on valid values or state transitions for state variables can create atomicity \& encapsulation requirements.
+	\end{itemize}
+	\item Designing Policy
+	\begin{itemize}
+		\item Update related state variables in a single atomic operation
+		\item For each mutable variable that may be accessed by more than one thread, all assesses to that variable must be performed with the same lock held.
+		\item Every shared, mutable variable should be guarded by exactly one lock. Make it clear to maintainers which lock that is.
+		\item For every invariant that involves more than one variable, all the variables involved in that invariant must be guarded by the same lock.
+	\end{itemize}
+	\item Implementing Policy
+	\begin{itemize}
+		\item Make sure every access of any variable is guarded by the lock according to the policy.
+		\item Make sure access of the related variables in the same method is in synchronized block.
+		\item Add waiting (and notify) to handle pre-conditions.
+		\item Try to use \texttt{final} for variables as much as you can.
+	\end{itemize}
+\end{enumerate}
+\subsubsection{Locking}
+Locking is not just about mutual exclusion; it is also about memory visibility. To ensure that all threads see the most up-to-date values of shared mutable variables, the reading and writing threads must synchronize on a common lock.
+\paragraph{Lock Contention}
+\begin{itemize}
+	\item Two factors influence the likelihood of contention for a lock
+	\begin{enumerate}[label=\roman*.]
+		\item How often that lock is requested
+		\item How long it is held once acquired
+	\end{enumerate}
+	
+	\item There are three ways to reduce lock contention
+	\begin{enumerate}[label=\roman*.]
+		\item Reduce the duration for which locks are held
+		\item Reduce the frequency with which locks are requested
+		\item Replace exclusive locks with coordination mechanisms that permit greater concurrency
+	\end{enumerate}
+\end{itemize}
+\subsection{Requirements of Multi-threaded programs}
+\begin{enumerate}
+	\item No Race Condition
+	\item No Visibility Issue
+	\item No Execution Ordering Problem
+	\item No Deadlocks
+	\item Efficiency (most basic!)
+\end{enumerate}
+\subsubsection{The Race Condition}
+Imagine playing Overcooked, where you and your friends would often scream and shout at each other over the wrong order of ingredients and procedure of matters. There are also times where you and your friends both need to access the same ingredient or cooking pot at the same time. None of you communicated about this issue, so the item of contention just becomes first come first serve. This is exactly the Race Condition when there is no global order of execution of threads, and the threads each hold onto a resource that other threads need.
+\subsubsection{Visibility}
+Implement variables as \texttt{volatile}, so that any update to the variable will be updated in the main memory and be seen by all threads. Also, the use of \texttt{volatile} actually does not only affect the \texttt{volatile} variable only, it affects the other variables of the same object as well under certain conditions.
+\subsubsection{Deadlocks}
+\begin{itemize}
+	\item A program that never acquires more than one lock at a time cannot experience lock-ordering deadlocks.
+	\item Strive to use open calls (calling a method with no locks held) throughout your program.
+	\item A program will be free of lock-ordering deadlocks if all threads acquire the locks they need in a fixed global order.
+\end{itemize}
+\paragraph{Non-blocking algorithms}\mbox{}\\
+\\ \noindent An algorithm is called non-blocking if failure or suspension of any thread cannot cause failure or suspension of another thread.\\
+\\
+\noindent Non-blocking algorithms are immune to deadlock (though, in unlikely scenarios, may exhibit livelock or starvation).
+\subsection{Java Synchronizers}
+\subsubsection{CountdownLatch}
+The CountDownLatch class allows one or more threads to wait until a set of operations in other threads complete. CountDownLatch works by having a counter initialized with number of threads, which is decremented each time a thread complete its execution. When count reaches to zero, it means all threads have completed their execution, and thread waiting on latch resume the execution.
+\begin{enumerate}
+	\item \texttt{CountDownLatch latch = new CountDownLatch(numberOfThreads);}
+	\item To inform the main thread that one of the service threads has completed its task, we decrement the counter with  \texttt{latch.countDown();}
+	\item The main thread can resume its work with \texttt{latch.await();} 
+\end{enumerate}
+A more concrete example of a program that relies on service threads and a main thread needs to wait for several threads to finish their tasks:
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+public static void main (String[] args) {
+	CountDown Latch latch = new CountDownLatch(numberOfTasks);
+
+	// initiatite the tasks
+	services = new ArrayList<ToDoTask>();
+	for (int i = 0; i < numberOfTasks; i++) {
+		services.add(new ServiceWorker(i, latch));
+	}
+
+	// initiate the thread pool to take on the tasks
+	Executor executor = Executors.newFixedThreadPool(services.size());
+	for(ToDoTask w : services) {
+		executor.execute(w);
+	}
+
+	// Check
+	latch.await();
+	for(ToDoTask w: services) {
+		if(!w.isServiceUp()) {
+			return false;
+		}
+	}
+
+	return true;
+
+	}
+}
+\end{minted}
+\mbox{}\\
+Here's the methods for ToDoTask object class.
+\\
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+public ToDoTask(int i, CountDownLatch latch)
+	{
+		super();
+		this._latch = latch;
+		this._index = i;
+		this._serviceUp = false;
+	}
+
+	@Override
+	public void run() {
+		try {
+			doSomeWork();
+			_serviceUp = true;
+		} catch (Throwable t) {
+			t.printStackTrace(System.err);
+			_serviceUp = false;
+		} finally {
+			if(_latch != null) {
+				_latch.countDown(); // decrement latch counter.
+			}
+		}
+}
+
+public doSomeWork() {
+	// some working code
+}
+\end{minted}
+\mbox{}\\
+What if you are not certain of how many batches of tasks you actually need to complete? You would need to create a new CountDownLatch for every batch of tasks that you receive, and in this code, this is not accounted for. So, we turn to CyclicBarrier for resolving this issue.
+\subsubsection{CyclicBarrier}
+For different batches of the same number of tasks, the CyclicBarrier can be reused indefinitely.\\
+\\
+\noindent Assuming the following variables \& the method \texttt{doTask} are declared as such for the CyclicBarrier main program:
+\newpage
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+import java.util.concurrent.*;
+
+protected final static int TASKS_PER_BATCH = 3;
+protected final static int BATCHES = 5;
+
+protected final void doTask(int batch) {
+	System.out.printf("Task start %d%n", batch);
+	int ms = ThreadLocalRandom.current().nextInt(500, 3000);
+	try {
+		Thread.sleep(ms);
+	} catch (InterruptedException e) {
+		Thread.currentThread().interrupt();
+	}
+	System.out.printf("Task in batch %d took %dms%n", batch, ms);
+	}
+}
+\end{minted}
+\mbox{}\\
+CyclicBarrierExample program code:
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+public class CyclicBarrierExample {
+	public static void main(String[] args) {
+		CyclicBarrierExample eg = new CyclicBarrierExample();
+		ExecutorService pool = Executors.newFixedThreadPool(TASKS_PER_BATCH);
+		CyclicBarrier barrier = new CyclicBarrier(TASKS_PER_BATCH);
+
+		for (int batch = 0; batch < BATCHES; batch++) {
+			for (int i = 0; i < TASKS_PER_BATCH; i++) {
+				int batchNumber = batch + 1;
+				pool.submit(() -> eg.task(barrier, batchNumber));
+			}
+		}
+		pool.shutdown();
+	}
+
+public void task(CyclicBarrier barrier, int batch) {
+	boolean interrupted = Thread.interrupted();
+		while (true) {
+			try {
+				barrier.await(); // wait for barrier to be lifted.
+				break;
+			} catch (InterruptedException e) {
+				interrupted = true;
+			} catch (BrokenBarrierException e) {
+				throw new AssertionError(e);
+			}
+		}
+	if (interrupted) Thread.currentThread().interrupt();
+		doTask(batch);
+	}
+}
+\end{minted}
+\subsubsection{Phaser}
+Essentially, Phaser = CountdownLatch + CyclicBarrier.\\
+\\
+What sets Phaser apart is it is \textbf{reusable} (like CyclicBarrier) and \textbf{more flexible in usage}. In both CountDownLatch and CyclicBarrier number of parties (thread) that are registered for waiting can't change where as in Phaser that number can vary.\\
+\\
+Tasks may be registered at any time (using methods \texttt{register()},  \texttt{bulkRegister(int)}, or by specifying initial number of parties in the constructor). Tasks may also be optionally deregistered upon any arrival (using \texttt{arriveAndDeregister()}).\\
+\\
+We can reuse the phaser for the batches, like with the CyclicBarrier. The Phaser also knows which phase it is in, thus we do not need to pass along the batch number.
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+public class PhaserExample extends LockStepExample {
+	public static void main(String[] args) {
+		PhaserExample eg = new PhaserExample();
+		ExecutorService pool = newFixedThreadPool(TASKS_PER_BATCH);
+		Phaser phaser = new Phaser(TASKS_PER_BATCH);
+
+		for (int batch = 0; batch < BATCHES; batch++) {
+			for (int i = 0; i < TASKS_PER_BATCH; i++) {
+				int batchNumber = batch + 1;
+				pool.submit(() -> eg.task(phaser));
+			}
+		}
+		pool.shutdown();
+	}
+\end{minted}
+\mbox{}\\
+The task() method is also just reduced to a one-liner: \texttt{phaser.arriveAndAwaitAdvance()}.
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+public void task(Phaser phaser) {
+	phaser.arriveAndAwaitAdvance();
+	doTask(phaser.getPhase());
+}
+\end{minted}
+\textbf{Advantage:} if our Phaser blocks a thread in the common fork-join pool, another will be created to keep the parallelism at the desired level.
+\newpage
+\subsubsection{Summary}
+\begin{table}[H]
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{CountDownLatch}}                                                                                  & \multicolumn{1}{c|}{\textbf{Cyclic Barrier}}                                                                                                                  & \multicolumn{1}{c|}{\textbf{Phaser}}                                                                                                        \\ \hline
+		\begin{tabular}[c]{@{}l@{}}\tabitem Created with a fixed number \\ of threads\end{tabular}                                            & \begin{tabular}[c]{@{}l@{}}\tabitem Created with a fixed number \\ of threads\end{tabular}                                                                           & \begin{tabular}[c]{@{}l@{}}\tabitem Number of threads need not be \\known at Phaser creation time. They \\can be added dynamically.\end{tabular} \\ \hline
+		\tabitem Cannot be reset                                                                                                              & \tabitem Can be reset                                                                                                                                                & \tabitem Can be reset and hence is, reusable.                                                                                                      \\ \hline
+		\begin{tabular}[c]{@{}l@{}}\tabitem Allow threads to wait with  \\ \texttt{await()} or continue with its \\ execution \texttt{countdown()}\end{tabular} & \begin{tabular}[c]{@{}l@{}}\tabitem Does not provide a method \\ for the threads to advance. The \\ threads have to wait till all the\\ threads arrive\end{tabular} & \begin{tabular}[c]{@{}l@{}}\tabitem Allow threads to wait with \\ \texttt{arriveAndAwaitAdvance()} or continue\\ with its execution \texttt{arrive()}\end{tabular}  \\ \hline
+	\end{tabular}
+\end{table}
+\subsection{Performance}
+\subsubsection{Thread Pools with the Executor}
+Executor provides a standard means of decoupling task submission from task execution. The \texttt{Runnable} is the task itself. The method \texttt{execute} defines how it is executed.
+
+\includegraphics[scale=0.5]{ThreadPoolsExecutor.png}
+\noindent
+\textit{The queue may grow unbounded! When a bounded task queue fills up, the saturation policy comes into play. default: throw }\texttt{RejectedExecutionException}
+\paragraph{Advantages}
+\begin{itemize}
+	\item Reusing an existing thread; reduce thread creation and teardown costs.
+	\item No latency associated with thread creation; improves responsiveness.
+	\item By properly tuning the size of the thread pool, you can have enough threads to keep the processors busy while not having so many that your application runs out of memory or crashes due to competition among threads for resources
+\end{itemize}
+\paragraph{Disadvantages}
+\begin{itemize}
+	\item Context switching: requires saving the execution context of the currently running thread and restoring the execution context of the newly scheduled thread
+	\begin{itemize}[label=$\circ$]
+		\item CPU time spent on JVM/OS
+		\item Cache misses
+		\item Costs about 5,000 to 10,000 clock cycles
+	\end{itemize}
+	\item Memory synchronization:
+	\begin{itemize}[label=$\circ$]
+		\item Memory barriers inhibit compiler optimization
+	\end{itemize}
+\end{itemize}
+\paragraph{Execution Policy}
+\begin{itemize}
+	\item In what thread will tasks be executed?
+	\item In what order should tasks be executed (FIFO)?
+	\item How many tasks may execute concurrently?
+	\item How many tasks may be queued pending execution?
+	\item If a task has to be rejected because the system is overloaded, which task should be selected and how the application be notified?
+	\item What actions should be taken before or after executing a task?
+\end{itemize}
+\paragraph{Task Implementation}
+\mbox{}\\
+Thread pools work best when tasks are homogeneous and independent.
+\begin{itemize}
+	\item Dependency between tasks in the pool creates constraints on the execution policy which might result in problems (deadlock, liveness hazard, etc.)
+	\item Long-running tasks may impair the responsiveness of the service managed by the Executor.
+	\item Reusing threads create channels for communication between tasks – don’t use them.
+\end{itemize}
+Task should not be too big or small:
+\begin{itemize}
+	\item Too small: the ratio of useful work vs overhead becomes small
+	\item Too big: Number of tasks available at a time is upper bound on achievable speedup
+\end{itemize}
+\paragraph{Implementations}
+\begin{enumerate}
+	\item Creating the Thread Pool
+	\begin{itemize}
+		\item \texttt{newFixedThreadPool}
+		\begin{itemize}[label=$\circ$]
+			\item Fixed-size thread pool; creates threads as tasks are submitted, up to the maximum pool size and then attempts to keep the pool size constant
+		\end{itemize}
+		\item \texttt{newCachedThreadPool}
+		\begin{itemize}[label=$\circ$]
+			\item Boundless, but the pool shrinks and grows when demand dictates so
+		\end{itemize}
+		\item \texttt{newSingleThreadExecutor}
+		\begin{itemize}[label=$\circ$]
+			\item A single worker thread to process tasks, sequentially according to the order imposed by the task queue
+		\end{itemize}
+		\item \texttt{newScheduledThreadPool}
+		\begin{itemize}[label=$\circ$]
+			\item A fixed-size thread pool that supports delayed and periodic task execution.
+		\end{itemize}
+	\end{itemize}
+	\item Terminate the executor's service:
+	\begin{itemize}
+		\item \texttt{shutdown()}
+		\begin{itemize}[label=$\circ$]
+			\item will just tell the executor service that it can't accept new tasks, but the already submitted tasks continue to run
+		\end{itemize}
+		\item \texttt{shutdownNow()}
+		\begin{itemize}[label=$\circ$]
+			\item will do the same AND will try to cancel the already submitted tasks by interrupting the relevant threads.
+			\item Note that if your tasks ignore the interruption, \texttt{shutdownNow()} will behave exactly the same way as \texttt{shutdown()}.
+		\end{itemize}
+	\end{itemize}
+\end{enumerate}
+\subsubsection{Optimal CPU Utilization}
+Given these definitions:
+\begin{itemize}
+	\item $N$ = number of CPUs
+	\item $U$ = target CPU utilization
+	\item $\frac{W}{C}$ = ratio of wait time to compute time
+\end{itemize}
+The optimal pool size is:
+
+$$M = N * U * \left(1 + \frac{W}{C}\right)$$
+\\
+\noindent The number of CPUs can be obtained by: \texttt{Runtime.getRuntime().availableProcessors()}.
+\subsubsection{Other Factors}
+Other resources that can contribute to sizing constraints are memory, file handles, socket handles, database connections, etc.
+\begin{itemize}
+	\item Add up how much of those resources each task requires and divide that into the total quantity available
+\end{itemize}
+Alternatively, the size of the thread pool can be tuned by running the application using different pool sizes and observing the level of CPU and other resource utilization.
+\subsection{Parallelization Patterns}
+\begin{itemize}
+	\item Loop Parallelism: Given a loop, each thread/process execute part of the loop.
+	\item Master/Worker: A master thread/process divides a problem into several sub-problems and dispatches them to several worker processes.
+	\item Fork/Join
+	\begin{itemize}[label=$\circ$]
+		\item Tasks are created dynamically
+		\item Tasks can create more tasks
+		\begin{itemize}[label=\tiny$\blacksquare$]
+			\item Manages tasks according to their relationship
+			\item Parent task creates new tasks (fork) then waits until they complete (join) before continuing on with the computation
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\subsection{Concurrency-related Libraries}
+\subsubsection{Older libraries (JDK 2)}
+\begin{itemize}
+	\item Usually we don't use such libraries anymore, but for legacy sake, we need to learn about how they work
+	\item Usually involves locking a collection and are built with synchronized methods, hence making it very thread-safe, but this results in compromise of performance.
+\end{itemize}
+\begin{displayquote}
+	e.g. Vector is considered a “legacy” collection class. “Modern” collection classes use Iterator.
+\end{displayquote}
+\paragraph{Problems with locking a collection}
+\begin{itemize}
+	\item There is usually a hidden Iterator, so you can't modify/override the methods. And if you modify the collection during the iteration, a \texttt{ConcurrentModificationException} will be thrown. This is known as \textbf{\textit{fail-fast}}.
+	\item If the collection is large or the task performed is lengthy, other threads could wait a long time.
+	\item It increases the risk of problems like deadlock.
+	\item The longer a lock is held, the more likely it is to be contended.
+\end{itemize}
+\subsubsection{Slightly More Recent Libraries (JDK 5)}
+Synchronized collections in jdk2 are replaced with Concurrent collections in this version of jdk. This offers dramatic scalability improvement with little risk.
+\paragraph{ConcurrentHashMap}
+\begin{itemize}
+	\item It is a HashMap designed for concurrency.
+	\item It uses a finer-grained locking mechanism called lock striping.
+	\item Uses an array of 16 locks. Each lock guards 1/16 of the hash buckets.
+	\item Bucket N is guarded by lock N mod 16.
+	\item The iterators returned by ConcurrentHashMap are weakly consistent (i.e., it is OK to modify the collection while iterating through it) instead of fail-fast.
+	\item It does not support client-based locking.
+\end{itemize}
+\paragraph{CopyOnWriteArrayList}
+\begin{itemize}
+	\item It is a concurrent replacement for a synchronized list that offers better concurrency in some common situations.
+	\item A new copy of the collection is created and published every time it is modified.
+	\item All write operations are protected by the same lock and read operations are not protected. 
+	\item More efficient than alternatives when traversal operations vastly outnumber mutations.
+	\item Useful when you don’t want to synchronize traversals (the process of visiting each node in a data structure, exactly once.), but need to prevent interference among concurrent threads.
+\end{itemize}
+\section{UML}
+\begin{center}
+	\includegraphics[scale=0.5]{UML_types.png}
+\end{center}
+\begin{displayquote}
+	\begin{itemize}
+		\item You will be given a requirement, then you have to model each of the diagrams below.
+		\item It is important that you finish all the UML exercises for the telephone network. These were not part of the PSET. Thus, I am assuming that many did not do it. This is probably the time to do. Do not look at the answers, try to do it yourself. As per as UML is concerned, there are way too many correct answers. While grading, we aim to find things that are WRONG, rather than matching through a pre-computed correct answer.
+		\item Ones highlighted in red are those that are taught in class.
+	\end{itemize}
+\end{displayquote}
+\subsection{Use Case Diagram}
+A use case shows a set of use cases and actors and their relationships and represent system functionality, the requirements of the system from the user’s respective.
+\begin{itemize}
+	\item Use Case
+	\begin{itemize}[label=$\circ$]
+		\item A description of a set of sequences of actions, including variants, that system performs that yields an observable value to an actor.
+		\item Should ideally begin with a verb.
+		\item Think of the end goal of a user. They don't want to "login" or "sign up." That's not a use case. The use case is more like "make a purchase."
+	\end{itemize}
+	\item Actors
+	\begin{itemize}[label=$\circ$]
+		\item People or systems that provide or receive information from the system; they are among the stakeholders of a system, which could be human beings, other systems, timers and clocks or hardware devices.
+		\item Primary Actors: stimulate the system and are the initiators of events (active).
+		\item Secondary Actors: only receive stimuli from the system (passive).
+	\end{itemize}
+\end{itemize}
+\begin{center}
+	\includegraphics[scale=0.7]{use_case_diagram.png}\\
+	\textbf{\textit{example:}} of use case diagram
+\end{center}
+The customer makes many checkouts and for any payment he makes, there is only one payment service in charge of it. While checking out, he might require help and by checking out, he would need to make a payment.\\
+\\
+	\textbf{!! Note:} Usually multiplicity is not required for use case diagrams, but mandatory in class diagrams.
+\subsubsection{Limitations}
+\begin{itemize}
+	\item Use cases only capture how a system is used
+	\item Use cases do not consider adversarial scenarios
+	\begin{itemize}[label=$\circ$]
+		\item Abusing system functionality
+		\item Hacking and malfunctioning
+		\item In general, any non-functional requirement, especially security
+	\end{itemize}
+	\item Clients and customers are unlikely to provide misuse cases, the onus is on the software engineers. Hence the need for misuse case diagrams arises.
+\end{itemize}
+\begin{center}
+	\textit{\textbf{example: }}misuse diagram\\
+	\mbox{}\\
+	\includegraphics[scale=0.6]{misuse_diagram.png}
+\end{center}
+\subsection{Sequence Diagram}
+\begin{center}
+	\includegraphics[scale=0.6,trim={1cm 0 5.5cm 0},clip]{sequence_diagram.png}
+\end{center}
+\newpage
+\subsection{State Diagram}
+\begin{displayquote}
+	If I ask to draw state diagram, I will not tell you the number of states or the names of the states. Thus, you need to pay attention on how to figure out states in a state machine from arbitrary requirement. - Sudipta
+\end{displayquote}
+\begin{center}
+	\textit{\textbf{example: }}state diagram\\
+	\mbox{}\\
+	\includegraphics[scale=0.6]{state_diagram.png}
+\end{center}
+\newpage
+\subsection{Class Diagram}
+\begin{displayquote}
+	Understand the concepts of multiplicity and association clearly. These two are the most complex concepts as per as class diagram is concerned. - Sudipta
+\end{displayquote}
+\subsubsection{Association}
+\begin{table}[H]
+	\centering
+	\newcolumntype{C}{>{\centering\arraybackslash} m{6cm} }
+	\begin{tabular}{|l|Sc|}
+		\hline
+		\textbf{Type of Association} & \textit{\textbf{example:}} \\ \hline
+			Bidirectional    	 & \cincludegraphics[scale=0.45,trim={0 0 0 0.1cm},clip]{bidirectional.png} \\ \hline
+		Unidirectional               & \cincludegraphics[scale=0.45,trim={0 0 0 0.2cm},clip]{unidirectional.png}                        \\ \hline
+		Inheritance                  & \cincludegraphics[scale=0.7,trim={0 0 0 0.1cm},clip]{inheritance.png}                           \\ \hline
+		Implement Interface          & \cincludegraphics[scale=0.7,trim={0 0 0 0.1cm},clip]{implement_interface.png}                          \\ \hline
+	\end{tabular}
+\end{table}
+\subsubsection{Multiplicity}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Indicator} & \textbf{Meaning} \\ \hline
+		0..1               & Zero or one      \\ \hline
+		1                  & One only         \\ \hline
+		0..*               & Zero or more     \\ \hline
+		*                  & Zero or more     \\ \hline
+		1..*               & One or more      \\ \hline
+		3                  & Three only       \\ \hline
+		0..5               & Zero to Five     \\ \hline
+		5..15              & Five to Fifteen  \\ \hline
+	\end{tabular}
+\end{table}
+\begin{center}
+	\textbf{\textit{example:}} extensive multiplicity\\
+	\includegraphics[scale=0.5]{extensive_multiplicity.png}
+\end{center}
+Member Access Modifier Symbols: 
+\begin{itemize}
+	\item Public (+)
+	\item Private (-)
+	\item Protected (\#)
+	\item Package (\textapprox)
+	\item Derived (/) 
+	\item Static (underlined)
+\end{itemize}
+\section{Refactoring}
+\subsection{Comments}
+\subsection{Code Smells}
+\subsubsection{Types of Code Smells}
+\subsection{Secure Coding Standard}
+\subsubsection{XSS Injection}
+\subsection{Prevention}
+\subsubsection{XML Injection}
+\subsubsection{SQL Injection}
+\subsubsection{Objection Orientation}
+\paragraph{OBJ01-J}
+\paragraph{OBJ02-J}
+\paragraph{OBJ04-J}
+\section{Designing Test Cases}
+\subsection{Equivalence Class Partitioning \& Boundary Value Testing}
+\subsection{Fault-based Testing based on Dirty / Failure Test Cases}
+\subsection{All coverage metrics}
+\subsubsection{Control Flow Graph}
+\subsection{Test Generation}
+\subsubsection{Instrumentation}
+\subsection{Genetic Algorithm}
+\subsubsection{Symbolic Execution}
+\end{document}
