@@ -1023,12 +1023,174 @@ return (Date) date.clone();
 }
 \end{minted}
 \section{Designing Test Cases}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Black Box Tests}}                                                                                                                                         & \multicolumn{1}{c|}{\textbf{White Box Tests}}                                                                                                                                \\ \hline
+		Based on Specification                                                                                                                                                                 & Based on Code                                                                                                                                                                \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Covers as many specification as possible, hence better at \\ finding whether code meets the specification or some \\ specs are not implemented\end{tabular} & \begin{tabular}[c]{@{}l@{}}Covers as much implemented behavior as possible,\\ hence better at finding crashes, out-of-bound errors,\\ file handling errors etc.\end{tabular} \\ \hline
+	\end{tabular}
+\end{table}
 \subsection{Equivalence Class Partitioning \& Boundary Value Testing}
+\textbf{Equivalent Class Partitioning} is a black box technique (code is not visible to tester) which can be applied to all levels of testing like unit, integration, system, etc.\\
+\\
+In this technique, you divide input conditions into groups (classes).
+\begin{itemize}
+	\item Inputs in the same class should behave similarly in the program.
+	\begin{itemize}[label=$\circ$]
+		\item The hypothesis behind this technique is that if one condition/value in a partition passes all others will also pass. Likewise, if one condition in a partition fails, all other conditions in that partition will fail.
+		\item Then we pick only one value from each partition for testing.
+	\end{itemize}
+\end{itemize}
+\textbf{Boundary Analysis testing} is used when practically it is impossible to test a large pool of test cases individually.\\
+\\
+Using both together:
+\begin{enumerate}
+	\item In Equivalence Partitioning, first you divide a set of test condition into a partition that can be considered.
+	\item Thereafter in Boundary Value Analysis, you test boundaries between equivalence partitions.
+\end{enumerate}
+\begin{center}
+	\includegraphics[scale=0.5]{ecp.png}\\
+	\includegraphics[scale=0.5]{bva.png}
+\end{center}
+This form of testing is used to reduce a very large number of test cases to manageable chunks, and is appropriate for calculation-intensive applications with a large number of variables/inputs.
 \subsection{Fault-based Testing based on Dirty / Failure Test Cases}
+\begin{itemize}
+	\item Can something cause division by zero?
+	\item What if the input type is wrong
+	\item What if the customer takes an illogical path through your functionality?
+	\begin{itemize}[label=$\circ$]
+		\item e.g. Enter invalid email address or URL
+	\end{itemize}
+	\item What if mandatory fields are not entered?
+	\begin{itemize}[label=$\circ$]
+		\item e.g. Do not enter recipient’s email to send email
+	\end{itemize}
+	\item What if the program is aborted abruptly or input or output devices are unplugged?
+	\begin{itemize}[label=$\circ$]
+		\item e.g. Quit a game suddenly in the middle, does it save the state?
+	\end{itemize}
+\end{itemize}
 \subsection{All coverage metrics}
+\begin{itemize}
+	\item \textbf{Node Coverage:} \\Achieved when the paths identified have a test that goes to every node in the graph.
+	\item \textbf{Link Coverage:} \\Achieved when the paths identified have a test that goes along every link, or line, in the graph. In many cases, node coverage will take care of this.
+	\item \textbf{Loop Coverage:} \\Achieved when the numerous paths identified have tests that explores the interaction between sub-paths within a loop.
+	Statement coverage: Achieved when the flow of control reached every executable statement of source code at least once.
+	\item \textbf{Path Coverage:} \\Achieved when all linearly independent paths in the program are \textit{executed at least once}.
+	\begin{itemize}[label=$\circ$]
+		\item A path is defined as the number of nodes executed.
+		\item A linearly independent path can be defined in terms of what’s called a \textit{control flow graph} of an application.
+		\item If there is a while loop happening, depending on the input, there can be a lot of paths such that it is impossible to achieve path coverage.
+	\end{itemize}
+\end{itemize}
+\textbf{\textit{example}}: code that has a loop and impossible to achieve path coverage.
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+int f1(int x) {
+	int y;
+	while (x < 0) {
+		if (x >= 0) 
+			y = 1/x;
+		else
+			y++;
+		x ++;
+	}
+}
+\end{minted}
+\mbox{}\\
+\textbf{\textit{example}}: code that has a loop but achieves path coverage.
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+int f2(int x) {
+	int y;
+	int i = -10;
+	while (i < 0) {
+		if (x >= 0)
+			y = 1/x;
+		else
+			y++;
+		i++;
+	}
+}
+\end{minted}
 \subsubsection{Control Flow Graph}
+For advanced white-box testing, it is often important to capture the control flow of the program.\\
+\\
+\textbf{\textit{example}}: basic control flow graphs
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|Sc|Sc|Sc|}
+		\hline
+		\textbf{If} & \textbf{Until} & \textbf{While} \\ \hline
+		\cincludegraphics[scale=0.6]{if.png}  & \cincludegraphics[scale=0.6]{until.png} & \cincludegraphics[scale=0.6]{while.png} \\ \hline
+	\end{tabular}
+\end{table}
+\textbf{\textit{example}}: a slightly more complex control flow graph
+\begin{center}
+	\includegraphics[scale=0.6]{control-flow-graph.png}
+\end{center}
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+while (cond1)  {
+	if (cond2)
+		//stmt1
+		//stmt4
+	else
+		//stmt2
+}	
+//stmt3
+\end{minted}
+\newpage
 \subsection{Test Generation}
+You might be asked to:
+\begin{itemize}
+	\item insert or reduce instrumentation code (where and why).
+	\item reason whether it is ok to use random fuzzing, genetic algorithm or symbolic execution for making test inputs in terms of:
+	\begin{itemize}[label=$\circ$]
+		\item how probable it is to find the bug
+		\item performance of the method
+	\end{itemize}
+\end{itemize}
 \subsubsection{Instrumentation}
+Instrumentation code helps to check if a certain path / condition is executed. But if there is too much, it will become a \textbf{performance overhead}.
+\begin{displayquote}
+	Try making a HTTP get request from your database for all your images and printing to console the Base64 string of every image you got for testing purposes :) You will get why reducing the overhead is important. (don't be like me...)
+\end{displayquote}
 \subsection{Genetic Algorithm}
+Might be given a model to map the stuff to Genetic Algorithm's operators.
+\begin{itemize}
+	\item Fitness Selection
+	\item Crossover (based on which individual is fitter)
+	\item Mutation for randomized output.
+	\item Chromosome/ Individual Initiation
+\end{itemize}
+can be used to generate randomized input such as:
+\begin{itemize}
+	\item Strings e.g. Palindrome:
+	\begin{itemize}[label=$\circ$]
+		\item Chromosome: A char array of n letters
+		\item Crossover: for 2 inputs, randomly exchange letters to obtain child
+		\item Mutation: Randomly flip a letter
+		\item Fitness function: If the string has achieved palindromic property for >= 1 pair of letters
+	\end{itemize}
+	\item Integers e.g. weird specific integer (!! symbolic execution better):
+	\begin{itemize}[label=$\circ$]
+		\item Chromosome: a bitvector representing integer 'x'
+		\item Crossover: for 2 inputs x1, x2, randomly exchange bits to obtain child
+		\item Mutation: Randomly flip a bit fo ran input x
+		\item Fitness function: both statement and branch coverage works
+	\end{itemize}
+\end{itemize}
 \subsubsection{Symbolic Execution}
+It is good for finding out bugs which require specific values of the parameters to be found out.\\
+\\
+\textbf{\textit{example}}: method where symbolic execution test generation is appropriate
+\begin{minted}[mathescape, linenos,tabsize=4,obeytabs]{java}
+int fun3(int x, int y) {
+	int y;
+	if (x == 231301)
+		y = 5/0;
+}
+// bug hidden under weird condition branch
+// only 2 tests required: x = 231301 and x != 231301
+\end{minted}
 \end{document}

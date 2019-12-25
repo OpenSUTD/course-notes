@@ -69,7 +69,7 @@ Please don't post official course materials. This includes the following:
 
 ### 50.003 Elements of Software Construction
 
-[![50.003](https://img.shields.io/badge/Last%20updated-9%20Oct%202019-blue.svg)](https://github.com/OpenSUTD/course-notes/blob/master/notes/50.003%20Elements%20of%20Software%20Construction/2018/50.003_Finals_Revision_Compiled.md) [![50.003DL](https://img.shields.io/badge/View-orange.svg)](https://github.com/OpenSUTD/course-notes/blob/master/notes/50.003%20Elements%20of%20Software%20Construction/2018/50.003_Finals_Revision_Compiled.md)
+[![50.003](https://img.shields.io/badge/Last%20updated-15%20Oct%202019-blue.svg)](https://opensutd.org/course-notes/50.003/) [![50.003DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/50.003/)
 
 - Shared by [Siew Wen](https://github.com/lyqht)
 
