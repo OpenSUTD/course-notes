@@ -1,0 +1,240 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1in]{geometry} 
+\usepackage[hidelinks]{hyperref}
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\baselinestretch}{1.25} 
+
+\usepackage{minted}
+\usepackage{inconsolata}
+
+\usepackage{csquotes}
+
+\usepackage{enumitem}
+
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{3}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage{array}
+
+\usepackage{cellspace}
+\setlength\cellspacetoplimit{4pt}
+\setlength\cellspacebottomlimit{4pt}
+
+\newcommand\cincludegraphics[2][]{\raisebox{-0.3\height}{\includegraphics[#1]{#2}}}
+
+\usepackage{textcomp}
+\newcommand{\textapprox}{\raisebox{0.5ex}{\texttildelow}}
+
+\title{50.005 Computer System Engineering}
+\author{Tey Siew Wen}
+
+\date{15 Oct 2019}
+\begin{document}
+\maketitle
+	
+\tableofcontents
+	
+\newpage
+
+\section{Networking}
+\subsection{The Internet - A nuts \& bolts view}
+\begin{enumerate}
+	\item Hosts (End Systems) running network apps
+	\item Communication Links
+	\item Packet Switches
+\end{enumerate}	
+\subsection{The Packet}
+\begin{itemize}
+	\item Packet = Header + Payload
+	\begin{itemize}[label=$\circ$]
+		\item Header data is used by networking hardware to direct the packet to its destination
+		\item Payload is extracted and used by application software.
+	\end{itemize}
+	\item Usually, the mode of transmission of packets is: PC $\rightarrow$ Switch $\rightarrow$ Router $\rightarrow$ Modem $\rightarrow$ Modem $\rightarrow$ Switch $\rightarrow$ Servers
+	\item When the packets arrive at the router, the packet arrival rate to link temporarily exceeds the output link capacity. Hence they would queue in the router buffers, causing a delay.
+	\begin{itemize}[label=$\circ$]
+		\item If there are no free buffers for them to get into queue, then the packets will be dropped. This is known as packet loss.
+	\end{itemize}
+\end{itemize}
+\subsubsection{Single Router Packet Delay Sources}
+$$d_{nodal} = d_{proc} + d_{queue} + d_{trans} + d_{prop}$$
+\begin{enumerate}
+	\item Nodal Processing $(d_{nodal})$
+	\begin{itemize}[label=$\circ$]
+		\item Examine packet header
+		\item Check for bit errors
+		\item Determine output link (destination IP address in packet header)
+	\end{itemize}
+	\item Queueing $(d_{queue})$
+	\begin{itemize}[label=$\circ$]
+		\item Waiting time for packet to get to front of queue for output link
+		\item Depends on congestion level (how much other users are also sending data)
+	\end{itemize}
+	\item Transmission $(d_{trans})$
+	\begin{itemize}[label=$\circ$]
+		\item Time to push the whole packet (all the bits) from router to link $$ d_{trans} = \frac{L}{R} = \frac{\text{packet length (bits)}}{\text{link bandwith (bps)}}$$
+	\end{itemize}
+	\item Propagation $(d_{prop})$
+	\begin{itemize}[label=$\circ$]
+		\item Time for packet to move from beginning to end of the link,
+		$d_{prop} = \frac{\text{length of physical link (m)}}{\text{propagation speed in medium}}$
+		\item Propagation speed in medium is $\approx 2\times10^{8}$ m/s ($\frac{2}{3}$ speed of light in vacuum)
+		$$ d_{prop} = \frac{d}{s} \text{m/s} $$
+	\end{itemize}
+\end{enumerate}
+\subsubsection{End-to-end Delay for many hosts}
+\begin{itemize}
+	\item If not given space-time diagram $$ d_{end} = \text{no. of hops} \times \text{nodal delay} $$
+	\item If given space-time diagram, we can approximate $d_{end}$ from the graph.
+\end{itemize}
+\paragraph{Calculating Throughput}\mbox{}\\
+Throughput: File Receival rate (bits/s)
+\begin{itemize}
+	\item Instantaneous Throughput : at any instant of time
+	\item Average Throughput : over a longer period
+	\begin{itemize}[label=$\circ$]
+		\item for a file consisting of F bits
+		\item and the transfer takes T seconds for Host B to receive all F bits, then the calculation for average throughput is as shown below. $$ \frac{F}{T} \ \text{bits/s}$$
+	\end{itemize}
+	\item Effective throughput is determined by the slowest bandwidth in the route, the \textbf{\textit{bottleneck link}}.
+\end{itemize}
+\subsubsection{Average Link Utilization}
+Also known as \textit{Traffic Intensity}, given by the formula
+$$ \text{Traffic Intensity} = \frac{\text{La}}{\text{R}} $$
+where:
+\begin{itemize}
+	\item $L$ is the packet length (bits)
+	\item $a$ = average packet arrival rate
+	\item $R$ = link bandwidth (bits/s)
+\end{itemize}
+\mbox{}\\
+If $\frac{La}{R} > 1$,
+\begin{itemize}
+	\item the average rate at which bits arrive at the queue exceeds the rate at which the bits can be transmitted from the queue.
+	\item the queue will tend to increase without bound and the queuing delay will approach infinity.
+	\item so system must be designed that traffic intensity should be $\leq$ 1.
+\end{itemize}
+\mbox{}\\
+If $\frac{La}{R} \leq 1$,
+\begin{itemize}
+	\item If packets arrive individually periodically, then every packet will arrive at an empty queue and there will be no queueing delay
+	\item If the packets arrive periodically in bursts (bursty data), then the nth packet transmitted will have a queueing delay of $$(n-1)\times\frac{\text{L}}{\text{R}} \text { seconds}$$
+\end{itemize}
+\begin{framed}
+	\begin{displayquote}
+		Do note that the cases stated here are more academic examples than reality. In reality,\\ typically, the arrival process to a queue is random; that is, the arrivals do not follow any\\pattern and the packets are spaced apart by random amounts of time. $\frac{\text{La}}{\text{R}}$ is not usually\\ sufficient to fully characterize the queueing delay statistics.
+	\end{displayquote}
+\end{framed}
+\subsubsection{Modems}
+\begin{itemize}
+	\item Carries out Modulation \& Demodulation
+	\item Modulation: A process to add text/img/vid/sound etc into a carrier signal. Demodulation is vice versa.
+	\begin{itemize}[label=$\circ$]
+		\item Types of broadbands:
+		\begin{itemize}[label=\tiny$\blacksquare$]
+			\item Dial-up: audio freq $\leftrightarrow$ digital
+			\item DSL: copper telephone lines
+			\item Coaxial Cables: faster than DSL
+			\item Fibre Optic Cables: Light pulse
+		\end{itemize}
+		s
+		Wifi signals: EM waves
+	\end{itemize}
+	\item But for modern modems, there is no longer a need for conversion of signals from audio freq $\leftrightarrow$ digital. Their primary role is for converting electrical signals over long connections, into some signal form that is understood by router \& computers.
+\end{itemize}
+\subsection{The Internet - A service view}
+\begin{enumerate}
+	\item Protocols for communication
+	\begin{itemize}[label=$\circ$]
+		\item Define format, order of messages sent \& received
+		\item Appropriate actions to be taken on message transmission and receipts.
+		\item Set by RFC (Request for Comment) documents, published by IETF (Internet Engineering Task Force).
+		\item e.g. TCP connection request $\rightarrow$ connection response $\rightarrow$ Get request to a server URI $\rightarrow$ receive packet for a file
+	\end{itemize}
+	\item Network API for infrastructures to \textbf{provide services to user applications}
+	\item \textbf{Sharing of info among many devices} via circuit switching \& packet switching
+	\item \textbf{Scalability of systems} via the Hierarchy of ISPs
+\end{enumerate}
+\newpage
+\subsection{Internet Protocol Stack (Layering)}
+\begin{enumerate}
+	\item Application: messages
+	\item Transport: segments
+	\item Network: datagrams
+	\item Link: frames
+	\item Physical: bits
+\end{enumerate}
+The stack is separated into 5 layers so that we can \textbf{avoid complex interactions between\\ components}.
+\begin{itemize}
+	\item The packet's header \& payload is relative to the layer.
+	\item E.g. Transport layer's header is network layer's payload.
+	\item Number of possible interactions with N layers is N-1.
+	\item Without layers, there are $\text{N}^2$ possible interactions instead.
+	\begin{itemize}[label=$\circ$]
+		\item Difficult to debug
+		\item Might lead to emergent \& undesirable behaviour
+	\end{itemize}
+\end{itemize}
+\subsubsection{Internet Control Message Protocol (ICMP)}
+ICMP is used by hosts and routers to communicate network-layer information to each other. ICMP is often considered part of IP but architecturally it lies just above IP, as \textbf{ICMP messages are carried inside IP datagrams}. (\textbf{is also carried as IP payload}) \textit{Similar to TCP/UDP segments being carried as IP payload}.\\
+\\ When a host receives an IP datagram with ICMP specified as the upper-layer protocol, it demultiplexes the datagram’s contents to ICMP.\\
+\\ICMP messages have a type and a code field, and contain the header and the first 8 bytes of the IP datagram that caused the ICMP message to be generated in the first place.The sender can then determine the datagram that caused the error.\\
+\\
+Types of ICMP Messages:
+\begin{itemize}
+	\item Source Quench: perform congestion control - congested routers send this message to a host to force that host to reduce its transmission rate
+	\item Port Unreachable
+	\item Ping Echo request/reply
+\end{itemize}
+\newpage
+\subsubsection{Internet Service Provider (ISP)}
+An organization that provides services for accessing and using the internet. It is also a network of packet switches \& comm links.\\
+\\
+The hierarchy of ISPs: 
+\begin{center}
+	\includegraphics[scale=0.6]{isp.png}
+\end{center}
+\begin{itemize}
+	\item IXP connects the various global ISPs together.
+	\item Then the small individual access ISP subscribe to commercial global Tier 1 ISPs.
+	\item Google here is not a global ISP, but rather a Content Delivery Network (CDN), which is a private network that carries data to \& from Google servers only, but connects to everyone.
+\end{itemize}
+\newpage
+\subsection{Sharing of Information via Switching}
+\subsubsection{Circuit Switching}
+Circuit switching can performed via Time Domain Multiplexing (TDM) \& Frequency Domain Multiplexing (FDM).\\
+\\
+\textbf{Multiplexing} is the process of combining multiple signals into one, in such a manner that each individual signal can be retrieved at the destination. These multiple signals are also travelling in the same channel.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{TDM}}                                                                                                                                                                                                             & \multicolumn{1}{c|}{\textbf{FDM}}                                                                                                                                                                                                                                       \\ \hline
+		Bandwidth = bits/second                                                                                                                                                                                                                        & Bandwidth = frequency range                                                                                                                                                                                                                                             \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Divides and allocates certain time periods \\ to each channel in an alternating manner.\end{tabular}                                                                                                                & \begin{tabular}[c]{@{}l@{}}Divides the channel into two or more\\ frequency ranges that do not overlap.\end{tabular}                                                                                                                                                    \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Greater flexibility as it can dynamically \\ allocate more time periods to the signals \\ that need more of the bandwidth, while \\ reducing the time periods to those \\ signals that do not need it.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Less flexible since it preallocates use \\ of transmission link regardless of demand. \\ Cannot dynamically change the width of \\ the allocated frequency. So there could be \\ allocated but unneeded link time going unused.\end{tabular} \\ \hline
+		\begin{tabular}[c]{@{}l@{}}Each signal uses all of the bandwidth \\ some of the time.\end{tabular}                                                                                                                                             & \begin{tabular}[c]{@{}l@{}}Each signal uses a small portion of the\\ bandwidth all of the time.\end{tabular}                                                                                                                                                            \\ \hline
+	\end{tabular}
+\end{table}
+While there are advantages \& disadvantages to each method, FDM and TDM are \textit{often used in tandem}, to create even more channels in a given frequency range.\\
+\\
+A common practice for telecoms to allow a huge number of users to use a certain frequency band:
+\begin{itemize}
+	\item \textbf{divide the channel with FDM}, so that you have a dedicated channel with a smaller frequency range.
+	\item Each of the FDM channels is then \textbf{occupied by multiple channels that are multiplexed using TDM}.
+\end{itemize}
+Circuit switching allows a \textbf{fixed, dedicated fraction of the link for each user}. Better for continuous, streamline usage.
+\subsubsection{Packet Switching}
+On the other hand, Packet switching occupy link on demand, \textbf{better for bursty data}. e.g. A link shared among many users, but only a low proportion of users are active at the same time.
+\end{document}
