@@ -7,6 +7,8 @@ One of the best things about our school culture is how willing we are to help ea
 
 - [Contributing](#contributing)
 - [What Not to Post](#what-not-to-post)
+- [EPD Course Notes](#epd-course-notes)
+  - [30.003 Introduction to Probability and Statistics](#30003-introduction-to-probability-and-statistics)
 - [ESD Course Notes](#esd-course-notes)
   - [40.302 Advanced Topics in Optimization](#40302-advanced-topics-in-optimization)
   - [40.305 Advanced Topics in Stochastic Modeling](#40305-advanced-topics-in-stochastic-modeling)
@@ -36,6 +38,14 @@ Please don't post official course materials. This includes the following:
 - Lecture slides
 - Readings
 - Homework question papers
+
+## EPD Course Notes
+
+### 30.003 Introduction to Probability and Statistics
+
+[![30.003](https://img.shields.io/badge/Last%20updated-05%20Jan%202020-blue.svg)](https://opensutd.org/course-notes/30.003/) [![30.003DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/30.003/)
+
+- Shared by [Wei Min Cher](https://github.com/flamanta)
 
 ## ESD Course Notes
 
@@ -102,5 +112,4 @@ Ask him or her to submit a Pull Request here.
 Right now we are missing notes from the following pillars:
 
 - ASD
-- EPD
 - Freshmore
