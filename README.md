@@ -10,7 +10,10 @@ One of the best things about our school culture is how willing we are to help ea
 - [EPD Course Notes](#epd-course-notes)
   - [30.003 Introduction to Probability and Statistics](#30003-introduction-to-probability-and-statistics)
 - [ESD Course Notes](#esd-course-notes)
-  - [40.302 Advanced Topics in Optimization](#40302-advanced-topics-in-optimization)
+  - [40.002 Optimisation](#40002-optimisation)
+  - [40.011 Data and Business Analytics](#40011-data-and-business-analytics)
+  - [40.016 The Analytics Edge](#40016-the-analytics-edge)
+  - [40.302 Advanced Topics in Optimisation](#40302-advanced-topics-in-optimisation)
   - [40.305 Advanced Topics in Stochastic Modeling](#40305-advanced-topics-in-stochastic-modeling)
 - [HASS Course Notes](#hass-course-notes)
   - [02.126 Southeast Asia Under Japan: Motives, Memoirs, and Media](#02126-southeast-asia-under-japan-motives-memoirs-and-media)
@@ -49,7 +52,25 @@ Please don't post official course materials. This includes the following:
 
 ## ESD Course Notes
 
-### 40.302 Advanced Topics in Optimization
+### 40.002 Optimisation
+
+[![40.002](https://img.shields.io/badge/Last%20updated-02%20Feb%202020-blue.svg)](https://opensutd.org/course-notes/40.002/) [![40.002DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/40.002/)
+
+- Shared by [Tong Hui Kang](https://github.com/tonghuikang)
+
+### 40.011 Data and Business Analytics
+
+[![40.011](https://img.shields.io/badge/Last%20updated-02%20Feb%202020-blue.svg)](https://opensutd.org/course-notes/40.011/) [![40.011DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/40.011/)
+
+- Shared by [Tong Hui Kang](https://github.com/tonghuikang)
+
+### 40.016 The Analytics Edge
+
+[![40.016](https://img.shields.io/badge/Last%20updated-02%20Feb%202020-blue.svg)](https://opensutd.org/course-notes/40.016/) [![40.016DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/40.016/)
+
+- Shared by [Tong Hui Kang](https://github.com/tonghuikang)
+
+### 40.302 Advanced Topics in Optimisation
 
 [![40.302](https://img.shields.io/badge/Last%20updated-06%20Mar%202019-blue.svg)](https://opensutd.org/course-notes/40.302/) [![40.302DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/40.302/)
 
