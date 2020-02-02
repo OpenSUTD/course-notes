@@ -1,5 +1,6 @@
-<h1 align="center">OpenSUTD Course Notes</h1><!-- omit in toc -->
-<h3 align="center"><code>&#x1F4D9; Notes by SUTDents, for SUTDents. &#x1F4D9;</code></h3><!-- omit in toc -->
+&nbsp;
+
+<p align="center"><a href ="https://opensutd.org/course-notes/"><img src="https://repository-images.githubusercontent.com/169512475/be604000-4623-11ea-8457-c6b2cb7509d9" alt="course-notes logo"/></a></p>
 
 One of the best things about our school culture is how willing we are to help each other out. Let's maintain that for future generations by sharing our notes on the subjects we're taking :)
 
