@@ -1,0 +1,8 @@
+# Finals Summary
+
+| Topic                        | Specific Notes                                                                                                                                                                                                                                               |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| TCP Congestion Control       | [Lecture 10 - Congestion Control](Lecture10-CongestionControl.md), <br> [Lecture 11 - TCP Wrapup](Lecture11-TCPWrapup.md)                                                                                                                                    |
+| Network Layer                | [Lecture13 - Network Layer Overview](Lecture13-NetworkLayerOverview.md), <br> [Lecture14 - IP Addressing](Lecture14-IPAddressing.md), <br>[Lecture15 - Routing Algorithms](Lecture15-RoutingAlgorithms.md), <br> [Lecture16 - Routing](Lecture16-Routing.md) |
+| Link Layer & Synthesis       | [Lecture19 - Link Layer](Lecture19-Link_Layer.md)                                                                                                                                                                                                            |
+| Wireless and Mobile Networks | [Lecture21 - Wireless Networks](Lecture21-WirelessNetworks.md)                                                                                                                                                                                               |
