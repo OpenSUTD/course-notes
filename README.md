@@ -23,6 +23,7 @@ One of the best things about our school culture is how willing we are to help ea
   - [50.003 Elements of Software Construction](#50003-elements-of-software-construction)
   - [50.005 Computer System Engineering](#50005-computer-system-engineering)
   - [50.034 Introduction to Probability and Statistics](#50034-introduction-to-probability-and-statistics)
+  - [50.038 Computational Data Science](#50038-computational-data-science)
 - [Can't find your course here?](#cant-find-your-course-here)
 
 ## Contributing
@@ -124,6 +125,12 @@ Please don't post official course materials. This includes the following:
 [![50.034](https://img.shields.io/badge/Last%20updated-11%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.034/) [![50.034DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/50.034/)
 
 - Shared by [Koh Jing Yu](https://github.com/kohjingyu)
+
+### 50.038 Computational Data Science
+
+[![50.038](https://img.shields.io/badge/Last%20updated-05%20Feb%202020-blue.svg)](https://opensutd.org/course-notes/50.038/) [![50.038DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/50.038/)
+
+- Shared by [Siew Wen](https://github.com/lyqht)
 
 ## Can't find your course here?
 
