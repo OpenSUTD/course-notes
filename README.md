@@ -20,8 +20,10 @@ One of the best things about our school culture is how willing we are to help ea
   - [02.126 Southeast Asia Under Japan: Motives, Memoirs, and Media](#02126-southeast-asia-under-japan-motives-memoirs-and-media)
   - [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
 - [ISTD Course Notes](#istd-course-notes)
+  - [01.112 Machine Learning](#01112-machine-learning)
   - [50.003 Elements of Software Construction](#50003-elements-of-software-construction)
   - [50.005 Computer System Engineering](#50005-computer-system-engineering)
+  - [50.012 Networks](#50012-networks)
   - [50.034 Introduction to Probability and Statistics](#50034-introduction-to-probability-and-statistics)
   - [50.038 Computational Data Science](#50038-computational-data-science)
 - [Can't find your course here?](#cant-find-your-course-here)
@@ -100,6 +102,12 @@ Please don't post official course materials. This includes the following:
 
 ## ISTD Course Notes
 
+### 01.112 Machine Learning
+
+[![01.112](https://img.shields.io/badge/Last%20updated-06%20Feb%202020-blue.svg)](https://opensutd.org/course-notes/01.112/) [![01.112DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/01.112/)
+
+- Shared by [Siew Wen](https://github.com/lyqht)
+
 ### 50.003 Elements of Software Construction
 
 [![50.003](https://img.shields.io/badge/Last%20updated-15%20Oct%202019-blue.svg)](https://opensutd.org/course-notes/50.003/) [![50.003DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/50.003/)
@@ -119,6 +127,12 @@ Please don't post official course materials. This includes the following:
 [![50.005](https://img.shields.io/badge/Last%20updated-24%20Apr%202018-blue.svg)](https://opensutd.org/course-notes/50.005/) [![50.005DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/50.005/)
 
 - Shared by [Shaun Toh](https://github.com/Shaun2h) and [Joel Huang](https://github.com/joel-huang)
+
+### 50.012 Networks
+
+[![50.012](https://img.shields.io/badge/Last%20updated-06%20Feb%202020-blue.svg)](https://opensutd.org/course-notes/50.012/) [![50.012DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/50.012/)
+
+- Shared by [Siew Wen](https://github.com/lyqht)
 
 ### 50.034 Introduction to Probability and Statistics
 
