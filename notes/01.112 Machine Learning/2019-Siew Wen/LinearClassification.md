@@ -137,7 +137,9 @@ $$ \theta^{k+1} = (1-\lambda\alpha_k)\theta^{k} + \alpha_k(y^{(t)} - \theta\cdot
 The new factor $(1-\lambda\alpha_k)$ helps to shrink the parameters $\theta^{(k)}$ towards zero during each update.
 Without regularization i.e. $\lambda = 0$, it will look the same as the original gradient descent.
 
-![](effects_of_regularization.PNG)
+<p align="center">
+<img src="pictures/effects_of_regularization.PNG"/>
+</p>
 
 #### Closed Form Solution
 
