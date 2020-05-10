@@ -17,6 +17,7 @@ One of the best things about our school culture is how willing we are to help ea
   - [40.302 Advanced Topics in Optimisation](#40302-advanced-topics-in-optimisation)
   - [40.305 Advanced Topics in Stochastic Modeling](#40305-advanced-topics-in-stochastic-modeling)
 - [HASS Course Notes](#hass-course-notes)
+  - [02.212TS The Visual Culture of Science and Technology](#02212ts-the-visual-culture-of-science-and-technology)
   - [02.126 Southeast Asia Under Japan: Motives, Memoirs, and Media](#02126-southeast-asia-under-japan-motives-memoirs-and-media)
   - [02.229 Decision Theory and Practice](#02229-decision-theory-and-practice)
 - [ISTD Course Notes](#istd-course-notes)
@@ -87,6 +88,10 @@ Please don't post official course materials. This includes the following:
 - Shared by [Yustynn Panicker](https://github.com/Yustynn)
 
 ## HASS Course Notes
+
+### 02.212TS The Visual Culture of Science and Technology
+
+- Coming soon!
 
 ### 02.126 Southeast Asia Under Japan: Motives, Memoirs, and Media
 
