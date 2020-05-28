@@ -10,6 +10,7 @@ One of the best things about our school culture is how willing we are to help ea
 - [What Not to Post](#what-not-to-post)
 - [EPD Course Notes](#epd-course-notes)
   - [30.003 Introduction to Probability and Statistics](#30003-introduction-to-probability-and-statistics)
+  - [30.101 Systems & Control](#30101-systems--control)
 - [ESD Course Notes](#esd-course-notes)
   - [40.002 Optimisation](#40002-optimisation)
   - [40.011 Data and Business Analytics](#40011-data-and-business-analytics)
@@ -52,6 +53,12 @@ Please don't post official course materials. This includes the following:
 ### 30.003 Introduction to Probability and Statistics
 
 [![30.003](https://img.shields.io/badge/Last%20updated-05%20Jan%202020-blue.svg)](https://opensutd.org/course-notes/30.003/) [![30.003DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/30.003/)
+
+- Shared by [Wei Min Cher](https://github.com/flamanta)
+
+### 30.101 Systems & Control
+
+[![30.101](https://img.shields.io/badge/Last%20updated-26%20Apr%202020-blue.svg)](https://opensutd.org/course-notes/30.101/) [![30.003DL](https://img.shields.io/badge/Download-green.svg)](https://opensutd.org/course-notes/30.101/)
 
 - Shared by [Wei Min Cher](https://github.com/flamanta)
 
