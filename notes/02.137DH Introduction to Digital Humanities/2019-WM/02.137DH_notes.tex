@@ -1,0 +1,594 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{kpfonts}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[UKenglish]{isodate}
+\usepackage{tikz-cd} 
+\usepackage{enumitem}
+\origdate
+\cleanlookdateon
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+\renewcommand{\baselinestretch}{1.5} 
+
+\title{Notes on Digital Humanities\\[0.1cm]
+    \large 02.137DH Introduction to Digital Humanities, Term 4 2019}
+\author{Wei Min Cher}
+\date{5 October 2019}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section*{List of Weekly Readings}
+\noindent\textbf{Week 1}
+\begin{itemize}
+    \item Owens, Trevor. ``Defining Data for Humanists: Text, Artifact, Information or Evidence?'' \textit{Journal of Digital Humanities} 1, no. 1 (2011)
+    \item Rockwell \& Sinclair, \textit{Hermeneutica}, Chapter 1
+\end{itemize}
+\noindent\textbf{Week 2}
+\begin{itemize}
+    \item Rockwell \& Sinclair, \textit{Hermeneutica}, Chapter 2
+\end{itemize}
+\noindent\textbf{Week 3}
+\begin{itemize}
+    \item Rockwell \& Sinclair, \textit{Hermeneutica}, Chapters 3-4
+\end{itemize}
+\noindent\textbf{Week 4}
+\begin{itemize}
+    \item Rockwell \& Sinclair, \textit{Hermeneutica}, Chapters 5-7
+\end{itemize}
+\noindent\textbf{Week 5}
+\begin{itemize}
+    \item Jockers, \textit{Macroanalysis}, Chapters 5-6
+\end{itemize}
+\noindent\textbf{Week 6}
+\begin{itemize}
+    \item All Stanford Literary Lab pamphlets
+\end{itemize}
+\noindent\textbf{Week 8}
+\begin{itemize}
+    \item Jockers, \textit{Macroanalysis}, Chapters 7-9
+\end{itemize}
+\noindent\textbf{Week 9}
+\begin{itemize}
+    \item Montfort, Section on Wordnet in \textit{Exploratory Programming for the Arts and Humanities}
+\end{itemize}
+\noindent\textbf{Week 10}
+\begin{itemize}
+    \item Montfort, Section on classifiers in \textit{Exploratory Programming for the Arts and Humanities}
+\end{itemize}
+\noindent\textbf{Week 11}
+\begin{itemize}
+    \item Rockwell \& Sinclair, \textit{Hermeneutica}, Chapter 9
+\end{itemize}
+
+\newpage
+\section{W1: Introduction}
+
+\subsection{What are the Digital Humanities?}
+\begin{itemize}
+    \item Humanities with the use of digital tools
+    \item A new approach
+\end{itemize}
+
+\subsection{Benefits of digital tools in the Humanities}
+Digital tools can be used to:
+\begin{itemize}
+    \item Create an experience for an audience \textbf{(Better curation)}
+    \item Derive new meaning from an existing artefact \textbf{(More interpretations)}
+\end{itemize}
+
+\subsubsection{Better Curation}
+\begin{itemize}
+    \item Similar to the Model-View-Controller (MVC) paradigm in user experience design
+    \item Focus on visualisation for this course
+\end{itemize}
+
+\subsubsection{More Interpretations}
+\begin{itemize}
+    \item Allow new patterns and irregularities in big data to be discovered
+    \begin{itemize}[label=$\circ$]
+        \item Discovery of relationships within data (by tracking correlations, co-occurences, etc.)
+        \item Discovery of trends over time (or over any continuous category)
+        \item Discovery of anomalies (across continuous or discrete categories)
+    \end{itemize}
+\end{itemize}
+
+\subsection{Disadvantages of the Digital Humanities}
+\begin{itemize}
+    \item Over-reliance on digital tools
+    \begin{itemize}[label=$\circ$]
+        \item Black box problem
+    \end{itemize}
+    \item Possibility of violating copyright laws
+\end{itemize}
+\subsection{The Hermeneutical Spiral}
+\begin{itemize}
+    \item Rockwell and Sinclair aim to add computational thinking into the hermeneutical spiral
+    \begin{itemize}
+        \item Developed the Voyant series of tools for text analysis
+    \end{itemize}
+    \item With Digital Humanities, we now have another way to look at texts.
+    \begin{itemize}[label=$\circ$]
+        \item Before: Reader $\longleftrightarrow$ Text
+        \item After: \begin{tikzcd}[column sep=1.5em]
+ & \text{Reader} \arrow[Leftrightarrow]{dr} \\
+\text{Text} \arrow[Leftrightarrow]{ur} \arrow[Leftrightarrow]{rr} && \text{Tool}
+\end{tikzcd}
+    \end{itemize}
+        \item Individual and collective sense-making of value in the experience in a social context
+        \begin{itemize}[label=$\circ$]
+            \item Anu Helkkula `Characterizing Value as an Experience'
+        \end{itemize}
+        \item Hermeneutica (hermenutical tools) are in Digital Humanities' tradition of \textit{problematizing} methods through developing tools
+\end{itemize}
+
+\newpage
+\section{W2: Measurement / quantification and the Humanities}
+\subsection{Digital Humanities as Anti-Cartesianism}
+\begin{itemize}
+    \item Descartes: "I think, therefore I am"
+    \begin{itemize}[label=$\circ$]
+        \item Emphasizes solitary thought over groupthink
+        \item Inner monologue
+        \item Thought is fundamental
+    \end{itemize}
+    \item Digital Humanities: Uses computational tools together with humanistic skills to interpret texts
+    \begin{itemize}[label=$\circ$]
+        \item Collaborative in nature
+        \item Dialogical
+        \item Text and tools are fundamental
+    \end{itemize}
+\end{itemize}
+
+\subsection{Hermeneutica}
+\begin{itemize}
+    \item Small embeddable "toys" that can be woven into essays
+    \item Computational tools used to complement interpretation of texts
+\end{itemize}
+\subsubsection{Problems with Hermeneutica}
+\begin{itemize}
+    \item Researchers using tools without understanding how they work
+    \begin{itemize}[label=$\circ$]
+        \item Tools can become too "ready-at-hand" and therefore "non-disclosing"\\(not open to scrutiny and critique)
+        \item \textit{vide} Heidigger's distinction between "ready-at-hand" and "ready-to-hand" tools
+    \end{itemize}
+    \item Over-reliance on tools instead of humanistic interpretation could sidetrack the real conversation, which is about understanding texts in context
+    \item Modernist commitment to (possibly false) progress through technique
+\end{itemize}
+\subsection{Voyant}
+Accessible via \href{https://voyant-tools.org/}{\textcolor{blue}{https://voyant-tools.org/}}.
+\begin{itemize}
+    \item Web-based reading and analysis environment
+\end{itemize}
+\subsubsection{Features of Voyant}
+\begin{itemize}[label=$\circ$]
+    \item Collocates graph
+    \item Distribution graph: Uses stop-words to filter out common words
+    \item Concordance and more...
+\end{itemize}
+
+\newpage
+\section{W3: Concordance and Analysis: Introduction to Voyant}
+\subsection{The Remix}
+\begin{itemize}
+    \item Everything is a Remix
+    \begin{itemize}[label=$\circ$]
+        \item Documentary by Kirby Ferguson
+        \item ``Remixing is a folk art but the techniques are the same ones used at any level of creation: copy, transform, and combine. You could even say that everything is a remix.''
+    \end{itemize}
+    \item Rearrangeable texts
+    \begin{itemize}[label=$\circ$]
+        \item Commonplace book in the West e.g. \textit{Pride and Prejudice and Zombies}
+        \item Narrative paintings from West Bengal, India
+    \end{itemize} 
+\end{itemize}
+\subsection{Concordances}
+\begin{itemize}
+    \item Provides a new view of a corpus to support a consultative reading
+    \item Was originally created for the Bible
+    \item Was expensive to create, can be easily created computationally today
+    \begin{itemize}[label=$\circ$]
+        \item e.g. New York Times' interactive concordance of 75 Years of the State of the Union Addresses
+    \end{itemize}
+\end{itemize}
+\subsection{Defintion of key terms}
+\begin{itemize}
+    \item \textbf{Bag of words:} Per page or per document representation of words
+\item \textbf{Term Frequency - Inverse Document Frequency (Tf-Idf):}\\Statistic indicating how important a term is relative to a particular document
+\item \textbf{Semantics: }vector space
+\end{itemize}
+\subsection{Contexts and dimensionality reduction}
+\begin{itemize}
+    \item With a large number of contexts (dimensions), we need to perform dimensionality reduction to visualise information, methods include:
+    \begin{itemize}[label=$\circ$]
+        \item Correspondence analysis
+        \item Principal Components Analysis (PCA) [for continuous-valued dimensions]
+        \item t-SNE (t-Distributed Stochastic Neighbor Embedding)
+        \item Factor analysis
+    \end{itemize}
+    \item \textbf{Note:} beyond the scope of the class
+\end{itemize}
+
+\newpage
+\section{W5: Thematic analysis in the Humanities: Topic Modeling}
+\subsection{From Week 4}
+\begin{itemize}
+    \item - Supervised learning
+    \item Carve up space into manageable, identifiable space to draw conclusions from text
+    \item Simplest case
+    \begin{itemize}[label=$\circ$]
+        \item One feature in feature-space (normalized average length of each line in a book)
+        \item Class for each data point is plotted along the y-axis (0 = prose, 1 = poetry)
+  \end{itemize}
+  \item More classes = more dimensions
+  \begin{itemize}[label=$\circ$]
+      \item Require reduction in dimensions
+  \end{itemize}
+\end{itemize}
+
+\subsection{Metadata}
+\begin{itemize}
+    \item Data for data
+    \begin{itemize}[label=$\circ$]
+        \item Useful in slicing and dicing the data to discover local, subset-specific trends
+    \end{itemize}
+    \item Particularly important in humanistic studies
+    \begin{itemize}[label=$\circ$]
+        \item Data is very rarely homogeneous
+        \begin{itemize}[label=\tiny$\blacksquare$]
+            \item Many micro-trends may be lurking in the data
+        \end{itemize}
+        \item Data is highly subject to various biases
+        \begin{itemize}[label=\tiny$\blacksquare$]
+            \item Confirmation, selection, sampling bias etc.
+            \item Data is filtered through many layers of mediation
+            \begin{itemize}[label=--]
+                \item What libraries have found worth preserving
+                \item What critics have found worth praising
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    \item Metadata is data about data (or second-order data)
+    \begin{itemize}[label=$\circ$]
+        \item Truth-claim
+        \item Was the truth-claim "falsified" (invalidated)?
+    \end{itemize}
+\end{itemize}
+
+\subsection{Topic Models}
+\begin{itemize}
+    \item Algorithms for discovering the main themes that pervade a large and otherwise unstructured collection of documents
+    \item What do topic models do?
+    \begin{itemize}[label=$\circ$]
+        \item Organize a collection according to discovered themes
+    \end{itemize}
+    \item Assigns every \textbf{word} in every \textbf{document} to one of a given number of \textbf{topics}
+    \begin{itemize}[label=$\circ$]
+        \item Topic: distribution of words: a guess made by algorithm about how words tend to co-occur in a document
+        \item Document: basic unit in terms of which the algorithm is treating the body of text being analyzed; modeled as a mixture of topics in different proportions
+        \item Algorithm: knows nothing about the content of any document and nothing about the order of words of any given document
+    \end{itemize}
+    \item Topic modeling algorithm can create many different topic models
+    \begin{itemize}[label=$\circ$]
+        \item Based on different choices of parameters for the model
+    \end{itemize}
+    \item For large, unstructured corpora: use the most interpretable topic model
+\end{itemize}
+
+\subsection{Model Checking}
+\begin{itemize}
+    \item How can we compare topic models based on how interpretable they are?
+    \begin{itemize}[label=$\circ$]
+        \item Use statistical/mathematical measures to compare
+        \item Use inspection/visualization methods to compare
+        \begin{itemize}[label=\tiny$\blacksquare$]
+            \item Usual approach for humanists
+        \end{itemize}
+    \end{itemize}
+    \item Requirements for successful topic modeling
+    \begin{itemize}[label=$\circ$]
+        \item A sufficiently large corpus
+        \begin{itemize}[label=\tiny$\blacksquare$]
+            \item No. of documents should be in the hundreds
+        \end{itemize}
+        \item Some familiarity with the corpus
+    \end{itemize}
+\end{itemize}
+
+\subsection{Pitfalls in Topic Modeling}
+\begin{itemize}
+    \item Can treat junk as an oracle
+    \item Poorly supervised machine-learning algorithm is like bad research assistant
+\end{itemize}
+
+\subsection{Limitations of Topic Modeling}
+\begin{itemize}
+    \item Don't blindly trust the word-cloud visualization for TM
+    \item Be aware that choices made about stopwords can shape results
+    \item Treat topic modeling results as a heuristic, and not as evidence
+    \item Know the limitations of your tool
+\end{itemize}
+
+\newpage
+\section{W8: The notion of ”style” -- Towards Computational Criticism}
+
+\subsection{Russian formalism}
+\begin{itemize}
+    \item Precursor to digital humanities
+    \item School of thought that developed in Russia in the early 20th century
+    \item Russian formalists thought of literature (or, more broadly, culture) as "combinatorial"
+    \begin{itemize}[label=$\circ$]
+        \item Culture consists of the constant reshuffling of the ceratain pre-existing thematic form in various combinations
+        \begin{itemize}[label=\tiny$\blacksquare$]
+            \item Certain key elements ocur in different elements occur in different folk tales in various combinations and permutations
+        \end{itemize}
+        \item One development of formalism was into "structuralism"
+    \end{itemize}
+    \item Alexander and Alexey Veselovsky
+    \begin{itemize}[label=$\circ$]
+        \item Thought beyond single texts or copora to \textit{comparative studies of different literatures and cultures} that together make up the imaginative world of all mankind
+    \end{itemize}
+\end{itemize}
+
+\subsection{Jockers Ch. 9}
+\begin{itemize}
+    \item Experiment with British, Irish and Scottish corpora
+    \begin{itemize}[label=$\circ$]
+        \item Topic modelling of themes and their relative saliences
+        \item Most salient theme for British: hounds and shooting sport
+        \item Most salient theme for Ireland: dialect, Ireland, lords and ladies, tears and sorrow
+        \item Most salient theme for Scotland: Scottish dialect, Scotland
+        \item Most salient theme for male corpora: pistons and other guns
+        \item Most salient theme for female corpora: female fashion
+    \end{itemize}
+    \item Misclassified novels are outliers, exceptions to the norms
+    \item We can find pattern among the pattern-breakers by creating a network graph of all the novels
+    \item Who is systemically different for authors
+    \item Understand time and gender influence on theme and authors
+\end{itemize}
+
+\newpage
+\section{W9: WordNet}
+\subsection{Overview of WordNet}
+\begin{itemize}
+    \item A large, human-curated "lexical database"
+    \item Most frequently cited "lexicographic resource" in the world
+    \item Originally created at Princeton University in 1986
+    \item A kind of "semantic network"
+    \medskip
+    \item Words as vectors:
+    \begin{itemize}[label=$\circ$]
+        \item A vector representation of words in a text corpus
+        \item Created using unsupervised machine learning by training on the text corpus
+    \end{itemize}
+\end{itemize} 
+
+\subsection{Difference between WordNet and word vectors}
+\subsubsection{WordNet}
+\begin{itemize}
+    \item Topological representation of the relationship between words
+    \begin{itemize}
+        \item Graph structure, with words as vertices and relationship between them as edges
+        \item Specific types of relationships are \textit{explicit}
+    \end{itemize}
+\end{itemize}
+\noindent Note: \textit{Strictly speaking, the term "words" here should be replaced by "word-senses"; we will talk about that when we discuss synsets}
+\subsubsection{Word vectors}
+\begin{itemize}
+    \item \textbf{Geometrical} representation of the \textit{relationship} between words
+    \item Types of relationships were \textit{implicit}
+\end{itemize}
+
+\subsection{WordNet relationships}
+\begin{itemize}
+    \item Is-a relationship: Inheritance
+    \item Has-a relationship: Possesses property
+    \item Indirect inheritance
+    \item Antonymic relationship
+\end{itemize}
+
+\subsection{Different kinds of relationships in WordNet}
+\begin{itemize}
+    \item Synonymy: words with same meaning
+    \item Antonymy: words with opposite meaning
+    \item Hypernym: word more general than given word
+    \item Hyponymy: word more specific than given word
+    \item Meronymy: word standing in a \textbf{part-of} relationship to given word
+    \item Holonymy: opposite of \textbf{meronymy}
+\end{itemize}
+
+\subsection{Synsets}
+\begin{itemize}
+    \item Many words are polysemic (multiple meanings, or senses)
+    \item WordNet graphs aren't graphs of words, but are graphs of \textbf{word-senses}
+    \item Synset: Associated with each word in Wordnet is a list of synsets
+    \begin{itemize}[label=$\circ$]
+        \item A set of synonyms, all of which pertain to a specific word sense
+        \item Nodes in the graph are not words, but word-senses, each word=sense being represented by a synset
+    \end{itemize}
+    \item Each element of a synset corresponds to a distinct word
+\end{itemize}
+
+\subsection{Things that can be done with WordNet}
+\begin{itemize}
+    \item e.g. get all synsets that consist of "noun" senses of the word "stream"
+    \item e.g. compute the path similarity between two word-senses
+    \item e.g. Enumerate all the different words that correspond to the same word-sense
+    \item e.g. Make a text more abstract and general
+\end{itemize}
+
+\subsection{Verifying the word-sense/synset}
+How do we know that we are on the right word-sense (right synset)?
+\begin{itemize}
+    \item Check that word-sense (synset) has best (shortest) similarity with nearby synsets
+\end{itemize}
+
+\subsection{Extended Open Multilingual WordNet}
+\begin{itemize}
+    \item Being developed at NTU's Linguistics Dept
+    \item Extension of the original WordNet database developed by Princeton University
+\end{itemize}
+
+\subsection{History and Genealogy of WordNet}
+\begin{itemize}
+    \item  Comes from the earlier and import period of Symbolic AI
+    \item Not about Big Data but about smaler datasets, emphasizing generalizability and explainablity
+    \item Arose from work in AI inspired by Cognitive Psychology, Philosophy and Information Science (knowledge representation), called "Semantic Networks" (also known as "conceptual graphs")
+    \begin{itemize}[label=$\circ$]
+        \item Extreme example of this is the still-ongoing Cyc project by (Doug Lenat), a humongous semantic network intended to capture all the knowledge in the world that can be obtained from text
+    \end{itemize}
+\end{itemize}
+
+\subsection{Before WordNet}
+\begin{itemize}
+    \item Oldest known semantic network drawn in 3rd century AD by Greek philosopher Porphyry in his commentary on Aristotle's categories
+    \begin{itemize}[label=$\circ$]
+        \item Poryphyry used it to illustrate Aristotle's method of defining categories by specifying the genus or general type and the differentiae that distinguish different subtypes of the same supertype
+    \end{itemize}
+\end{itemize}
+
+\subsection{Problems with Semantic Networks}
+\begin{itemize}
+    \item Real world data may be inconsistent or contradictory
+    \item Exceptions may occur
+\end{itemize}
+
+\subsection{Spreading activation}
+\begin{itemize}
+    \item Solution to problem of how to allocate contextual attention
+\end{itemize}
+
+\subsection{Cross-Part of Speech and Adjective Peculiarities}
+\begin{itemize}
+    \item Majority of WordNet's relations connect words from the same part of speech (POS)
+    \item WordNet consists of four sub-nets (nouns, verbs, adjectives and adverbs) with few cross-POS-pointers
+    \begin{itemize}[label=$\circ$]
+        \item Cross-POS relations include the "morphosemantic" links that hold among semantically similar words sharing a stem with the same meaning:
+        \begin{itemize}[label=\tiny$\blacksquare$]
+            \item Observe (verb), observant (adjective), observation, observatory (nouns)
+        \end{itemize}
+    \end{itemize}
+    \item Verb synsets are arranged into hierarchies as well
+    \item Verbs towards the bottom of the trees (troponyms) express increasingly specific manners characterizing an event, as in \{communicate-talk-whisper\}
+    \begin{itemize}[label=$\circ$]
+        \item Specific manner expressed depends on the semantic field; volume (as in the example above) is just one dimension along which verbs can be elaborated.
+        \item Others are speed {move-jog-run} or intensity of emotion {like-love-idolize}. Verbs describing events that necessarily and unidirectionally entail one another are linked: \{buy\}-\{pay\}, \{succeed\}-\{try\}, \{show-see\}, etc.
+    \end{itemize}
+    \item Adjectives are organized in terms of antonymy. Pairs of "direct" antonyms like wet-dry and young-old reflect the strong semantic polarization of their members
+    \begin{itemize}[label=$\circ$]
+        \item Each of these polar adjectives in turn is linked to a number of "semantically similar" ones: dry is linked to parched, desiccated and bone-dry, wet to soggy, waterlogged, etc.
+        \item Semantically similar adjectives are "indirect antonyms" of the central member of the opposite pole
+        \item Relational adjectives ("pertainyms") point to the nouns they are derived from (criminal-crime)
+    \end{itemize}
+    \item There are only few adverbs in WordNet
+    \begin{itemize}[label=$\circ$]
+        \item Majority of English adverbs are derived from adjectives via morphological affixation
+    \end{itemize}
+\end{itemize}
+
+\newpage
+\section{W10: Hands-on with Classifiers}
+\subsection{Support Vector Machine (SVM)}
+\begin{itemize}
+    \item Default classifier provided in Stylo GUI
+    \item SVMs build on the intuition that a ``linear'' hyperplane separating the candidate classes is easier to induce than a ``non-linear'' hyperplane
+    \item Solves the problem by introducing a new feature that makes for a linear (hyper)plane as the frontier between classes
+    \begin{itemize}[label=$\circ$]
+        \item  Take a low dimensional input space and transforming it to a higher dimensional space by applying a special ``kernel'' function
+        \item Converts a \textit{not linearly separable} problem to a much more manageable separable one
+        \item Coordinates of the individual instances are like \textit{"supports"} holding up the classification frontier (hyper)plane
+        \item Maximise the distance between nearest data point (either class) and hyperplane to decide the right hyperplane
+        \begin{itemize}[label=\tiny$\blacksquare$]
+            \item Distance is known as the \textbf{margin}
+            \item Margin proportional to robustness of classifier
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Sentiment and Emotion}
+\begin{itemize}
+    \item What's the difference?
+    \item Sentiment is like an overall mood (more ambient)
+    \begin{itemize}[label=$\circ$]
+        \item Emotion is more event-like (more transactional)
+    \end{itemize}
+    \item Why are sentiment/emotion important?
+    \begin{itemize}[label=$\circ$]
+        \item Emotion:
+        \begin{itemize}[label=\tiny$\blacksquare$]
+            \item Provide motivation for specific human actions
+            \begin{itemize}[label=\tiny$\blacksquare$]
+                \item Important for practical human-robot interactions
+            \end{itemize}
+        \item ``Signal'' of attitude of writer towards his/her subject
+        \item Understanding attitude provides an overall context that may be otherwise missing
+        \begin{itemize}[label=$\circ$]
+            \item Automatically classify reviews into positive or negative
+            \item Even, predict the stock market by gauging overall mood from social mediascape
+        \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Counting}
+\begin{itemize}
+    \item Not probably is going to be useful to get at sentiment
+\end{itemize}
+
+\subsection{``Bag-of-words'' approach}
+\begin{itemize}
+    \item Cannot distinguish tone
+\end{itemize}
+
+\subsection{Subjectivity in sentimental analysis}
+\begin{itemize}
+    \item Algorithm must understand subjectivity
+    \item Subjectivity is encoded in relational information between words (syntax)
+    \item ``Bag-of-words'' model loses information about sequentiality between words
+    \item Solution: We need a richer language model
+    \item TextBlob provides a richer model that takes word order into account
+\end{itemize}
+
+\subsection{TextBlob}
+\begin{itemize}
+    \item Acts as wrapper around Python implementation of the Natural Language ToolKit (NLTK)
+    \item Comes with its inbuilt (pre-trained) classifiers
+    \item Choose your classifier
+    \item Pre-trained classifier is heavily biased towards contemporary ``standard English''
+    \item Train the classifier yourself if corpus consists of non-``standard'' English
+    \item Does not return a single numeric value but a complex structure with \textit{polarity} and \textit{subjectivity}
+    \begin{itemize}[label=$\circ$]
+        \item Positivity: proxy for the confidence with which it is being considered positive or negative
+        \item Subjectivity: number which is a proxy for whether the sentence is subjective or not
+    \end{itemize}
+\end{itemize}
+
+\subsection{Pitfalls in sentiment analysis}
+\begin{itemize}
+    \item Semantic drift
+    \begin{itemize}[label=$\circ$]
+        \item Words changing in meaning over time
+        \item Sentiment-laden adjectives are most vulnerable to this
+        \begin{itemize}[label=\tiny$\blacksquare$]
+            \item Nouns and verbs are much more stable
+        \end{itemize}
+    \end{itemize}
+    \item Sarcasm/irony hard to handle
+    \item Beware of potential heterogeneity among people doing the training (if labeling training set)
+    \begin{itemize}[label=$\circ$]
+        \item Colloquial sentiment-bearing adjectives or idiomatic uses may be opaque to non-native\\speakers or people drawn from a different demographics
+        \item Particularly problematic if you are doing the training distributively e.g. Amazon's\\Mechanical Turk
+    \end{itemize}
+\end{itemize}
+
+\end{document}
