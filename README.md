@@ -50,6 +50,10 @@ Click on the "**Last updated**" badge under each course to access the course not
 
 [![30.101](https://img.shields.io/badge/Last%20updated-26%20Apr%202020-blue.svg)](https://opensutd.org/course-notes/30.101/) [![30.101share](https://img.shields.io/badge/shared%20by-%40flamanta-ff69b4)](https://github.com/flamanta)
 
+### 30.102 Electromagnetics & Applications
+
+[![30.102](https://img.shields.io/badge/Last%20updated-21%20Apr%202020-blue.svg)](https://opensutd.org/course-notes/30.102/) [![30.102share](https://img.shields.io/badge/shared%20by-%40flamanta-ff69b4)](https://github.com/flamanta)
+
 <hr>
 
 <h2 align="center">Engineering Systems & Design (ESD)</h2>

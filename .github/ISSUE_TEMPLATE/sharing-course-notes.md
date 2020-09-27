@@ -8,10 +8,13 @@ assignees: flamanta
 ---
 
 **Course Name**
+
 xx.xxx Course Name Here
 
 **Link to your course notes on cloud storage**
+
 [GDrive](https://drive.google.com)
 
 **Do you need help converting your notes into LaTeX?**
+
 Yes/No
