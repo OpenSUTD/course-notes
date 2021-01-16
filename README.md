@@ -54,6 +54,10 @@ Click on the "**Last updated**" badge under each course to access the course not
 
 [![30.102](https://img.shields.io/badge/Last%20updated-21%20Apr%202020-blue.svg)](https://opensutd.org/course-notes/30.102/) [![30.102share](https://img.shields.io/badge/shared%20by-%40flamanta-ff69b4)](https://github.com/flamanta)
 
+### 30.110 Digital Systems Lab
+
+[![30.110](https://img.shields.io/badge/Last%20updated-23%20Oct%202020-blue.svg)](https://opensutd.org/course-notes/30.110/) [![30.110share](https://img.shields.io/badge/shared%20by-%40flamanta-ff69b4)](https://github.com/flamanta)
+
 <hr>
 
 <h2 align="center">Engineering Systems & Design (ESD)</h2>
@@ -137,8 +141,3 @@ Click on the "**Last updated**" badge under each course to access the course not
 Know someone who is great at a subject and is keen to contribute?
 
 Ask him or her to submit a Pull Request here.
-
-Right now we are missing notes from the following pillars:
-
-- ASD
-- Freshmore
